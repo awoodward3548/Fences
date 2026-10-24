@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fence Builder</title>
+<link rel="stylesheet" href="dialog.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <svg viewBox="0 0 24 24" class="logo"><path d="M3 21V8l2-3 2 3v13M10 21V8l2-3 2 3v13M17 21V8l2-3 2 3v13M2 11h20M2 17h20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+    <span>Fence Builder</span>
+  </div>
+  <div id="selPill" class="pill">Nothing selected</div>
+  <div id="status" class="status"></div>
+</header>
+
+<main class="layout">
+  <!-- Left: product catalog -->
+  <section class="catalog">
+    <div class="kinds" id="kinds"></div>
+    <input id="search" class="search" type="search" placeholder="Search fences (e.g. spear, privacy, 6')">
+    <div class="lines" id="lines"></div>
+    <div class="lineinfo" id="lineInfo"></div>
+    <h3 class="sub">Styles <span class="hint">click a style to use it</span></h3>
+    <div class="gallery" id="gallery"></div>
+    <p class="disclaimer" id="disclaimer"></p>
+  </section>
+
+  <!-- Right: preview + settings -->
+  <section class="editor">
+    <div class="preview">
+      <div class="preview-head">
+        <div>
+          <div id="pvTitle" class="pv-title"></div>
+          <div id="pvSub" class="pv-sub"></div>
+        </div>
+        <div class="pv-toggle">
+          <button class="seg on" data-pv="panel">Panel</button>
+          <button class="seg" data-pv="gate">Gate</button>
+        </div>
+      </div>
+      <div id="preview" class="pv-svg"></div>
+    </div>
+
+    <nav class="tabs">
+      <button class="tab on" data-tab="adjust">Adjust</button>
+      <button class="tab" data-tab="gates">Gates</button>
+      <button class="tab" data-tab="bom">Bill of Materials</button>
+      <button class="tab" data-tab="help">How to</button>
+    </nav>
+    <div class="panes">
+      <div class="pane on" id="pane-adjust"></div>
+      <div class="pane" id="pane-gates"></div>
+      <div class="pane" id="pane-bom"></div>
+      <div class="pane" id="pane-help"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="actions">
+  <label class="live"><input type="checkbox" id="live"> Live update selected fence</label>
+  <div class="spacer"></div>
+  <button id="btnReset" class="ghost" title="Restore the catalog defaults for this style">Reset style</button>
+  <button id="btnRebuild" class="ghost" title="Rebuild selected fences after editing their line">Rebuild from line</button>
+  <button id="btnApply" class="secondary" title="Apply these settings to the selected fence(s)">Apply to selected fence</button>
+  <button id="btnCreate" class="primary" title="Build a fence on the selected line group or edges">Create fence</button>
+</footer>
+
+<script src="preview.js"></script>
+<script src="dialog.js"></script>
+</body>
+</html>
