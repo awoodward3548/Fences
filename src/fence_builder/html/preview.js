@@ -216,11 +216,39 @@
     if (on(s.bottom_rail)) d.rect(X, c, X + w, c + 2 * r, col.frame, col.stroke);
     else d.line(x0, c + 1, x1, c + 1, col.stroke, 0.3);
     d.rect(x0, c, x1, h, fill, 'none');
+    if (on(s.windscreen)) {
+      var ws = n(s.windscreen_h); if (ws <= 0) ws = h - c - 12; if (ws > h - c) ws = h - c;
+      var wz = c + (h - c - ws) / 2;
+      d.rect(x0, wz, x1, wz + ws, col.windscreen, 'none', ' opacity="0.9"');
+    }
+    var na = n(s.net_above);
+    if (na > 0) netRect(d, x0, x1, h, h + na, col, Math.max(parseInt(s.net_cables, 10) || 2, 2));
     var nb = parseInt(s.barbed, 10) || 0;
     for (var k = 1; k <= nb; k++) {
       var z = h + 2 + 3 * k * 0.7071;
       d.line(x0, z, x1, z, col.wire, 0.35, ' stroke-dasharray="1.2 0.8"');
     }
+  }
+
+  function netRect(d, x0, x1, z0, z1, col, cables) {
+    d.rect(x0, z0, x1, z1, 'url(#__net__)', 'none');
+    for (var i = 0; i < cables; i++) {
+      var z = z0 + (z1 - z0) * i / (cables - 1);
+      d.line(x0, z, x1, z, '#333', Math.max(0.35, (z1 - z0) / 300));
+    }
+  }
+
+  function netting(d, s, X, w, o, col) {
+    var h = n(s.height, 240), c = o.clearance, cables = Math.max(parseInt(s.net_cables, 10) || 2, 2);
+    if (o.frame) {
+      var fr = n(s.gate_frame, 1.9);
+      d.rect(X, c, X + fr, h, col.frame, col.stroke);
+      d.rect(X + w - fr, c, X + w, h, col.frame, col.stroke);
+      d.rect(X, h - fr, X + w, h, col.frame, col.stroke);
+      netRect(d, X + fr, X + w - fr, c, h - fr, col, cables);
+      return;
+    }
+    netRect(d, X - o.extA, X + w + o.extB, c, h, col, cables);
   }
 
   function post(d, s, xc, size, top, type, col) {
@@ -257,7 +285,9 @@
     var fabric = s.infill === 'chain_link'
       ? (on(s.slats) ? css(s.infill_color ? inf : rgbOf(cat, 'green')) : 'url(#__pat__)')
       : css(inf);
+    var netc = s.infill === 'netting' ? (s.infill_color || 'black') : (s.net_color || 'black');
     return {
+      windscreen: css(rgbOf(cat, s.windscreen_color || 'green')), net: css(rgbOf(cat, netc), 1.0),
       frame: css(f), stroke: stroke, infill: css(inf), infillDark: css(inf, 0.78), wire: css(f, 0.7),
       fabricFill: fabric, fabricLine: css(s.infill_color ? inf : f, 0.85)
     };
@@ -266,6 +296,7 @@
   function infill(d, s, X, w, o, col) {
     if (s.infill === 'horizontal') horizontal(d, s, X, w, o, col);
     else if (s.infill === 'chain_link') chainLink(d, s, X, w, o, col);
+    else if (s.infill === 'netting') netting(d, s, X, w, o, col);
     else vertical(d, s, X, w, o, col);
   }
 
@@ -280,6 +311,7 @@
     if (s.finial === 'trident') e = Math.max(n(s.picket_w) * 1.6, 1.5) * 1.4;
     if (on(s.cap)) e = Math.max(e, n(s.cap_t, 1.5));
     if ((parseInt(s.barbed, 10) || 0) > 0) e = Math.max(e, 13);
+    if (s.infill === 'chain_link' && n(s.net_above) > 0) e = Math.max(e, n(s.net_above) + 2);
     return e + n(s.post_above) + 3;
   }
 
@@ -287,11 +319,13 @@
     var id = 'p' + (++uid);
     var pat = '<defs><pattern id="' + id + '" width="2" height="2" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">' +
       '<path d="M0 0 L0 2 M0 0 L2 0" stroke="' + col.fabricLine + '" stroke-width="0.22" fill="none"/></pattern>' +
+      '<pattern id="n' + id + '" width="4" height="4" patternUnits="userSpaceOnUse">' +
+      '<path d="M0 0 L0 4 M0 0 L4 0" stroke="' + col.net + '" stroke-width="0.35" fill="none" opacity="0.8"/></pattern>' +
       '<linearGradient id="g' + id + '" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fb36b" stop-opacity="0.55"/>' +
       '<stop offset="1" stop-color="#8fb36b" stop-opacity="0"/></linearGradient></defs>';
     var ground = '<rect x="' + minx + '" y="0" width="' + (maxx - minx) + '" height="' + (-minz) + '" fill="url(#g' + id + ')"/>' +
       '<line x1="' + minx + '" y1="0" x2="' + maxx + '" y2="0" stroke="#6b8f4e" stroke-width="' + (d.sw * 1.6) + '"/>';
-    var body = d.o.join('').replace(/__pat__/g, id);
+    var body = d.o.join('').replace(/__pat__/g, id).replace(/__net__/g, 'n' + id);
     var dims = opt.dimsSvg || '';
     return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="' + minx.toFixed(2) + ' ' + (-maxz).toFixed(2) + ' ' +
       (maxx - minx).toFixed(2) + ' ' + (maxz - minz).toFixed(2) + '" preserveAspectRatio="xMidYMid meet">' +
@@ -309,7 +343,7 @@
     var w = sp - ps - 2 * gap;
     var curve = { type: s.curve, h: n(s.curve_h), x0: 0, cw: w };
     var o = { clearance: c, curve: curve, extA: ps / 2 + gap, extB: ps / 2 + gap };
-    var top = h + n(s.post_above);
+    var top = h + n(s.post_above) + (s.infill === 'chain_link' ? n(s.net_above) : 0);
     var posts = function () { post(d, s, 0, ps, top, 'line', col); post(d, s, sp, ps, top, 'line', col); };
     if (s.infill === 'vertical') { infill(d, s, ps / 2 + gap, w, o, col); posts(); }
     else { posts(); infill(d, s, ps / 2 + gap, w, o, col); }

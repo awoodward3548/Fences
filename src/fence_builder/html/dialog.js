@@ -29,6 +29,7 @@
   // ------------------------------------------------------------- catalog
   function line(id) {
     var ls = FB.catalog.lines;
+    id = (FB.catalog.aliases || {})[id] || id;
     for (var i = 0; i < ls.length; i++) if (ls[i].id === id) return ls[i];
     return ls[0];
   }
@@ -62,7 +63,9 @@
     STICKY_ON_LINE.forEach(function (k) { if (k in FB.over) keep[k] = FB.over[k]; });
     if (keep.color && (ln.colors || []).indexOf(keep.color) < 0) delete keep.color;
     FB.over = keep;
-    if ('height' in keep) h = keep.height;
+    if ('height' in keep) {
+      if (ln.heights.indexOf(n(keep.height)) >= 0) h = keep.height; else delete keep.height;
+    }
     var st = ln.styles.indexOf(old.style) >= 0 ? old.style : ln.styles[0];
     FB.s = assign(defaults(id, st, h), keep);
     renderAll();
@@ -130,7 +133,10 @@
     $('#lineInfo').innerHTML = '<b>' + esc((ln.brand !== 'Generic' ? ln.brand + ' ' : '') + ln.name) + '</b> &mdash; ' +
       esc(ln.description) + '<br>' + esc(ln.material) + ' &middot; Heights ' +
       ln.heights.map(fmt).join(', ') +
-      keys(ln.spec).map(function (k) { return '<br><b>' + esc(k) + ':</b> ' + esc(ln.spec[k]); }).join('');
+      keys(ln.spec).map(function (k) { return '<br><b>' + esc(k) + ':</b> ' + esc(ln.spec[k]); }).join('') +
+      ((ln.sources || []).length ? '<br><span class="srcs">Spec sources: ' + ln.sources.map(function (u, i) {
+        return '<a href="#" data-url="' + esc(u) + '">' + (i + 1) + '</a>';
+      }).join(' ') + '</span>' : '');
     $('#disclaimer').textContent = FB.catalog.disclaimer || '';
   }
 
@@ -401,6 +407,7 @@
         FB.pv = 'gate'; renderPreview(); renderGates();
         return;
       }
+      if ((el = t.closest('[data-url]'))) { e.preventDefault(); call('open_url', el.getAttribute('data-url')); return; }
       if (t.closest('#btnMarkGate')) { call('mark_gate', gateOpts()); return; }
       if (t.closest('#btnUnmarkGate')) { call('unmark_gate'); return; }
       if (t.closest('#btnExport')) { call('export_bom'); return; }
@@ -461,6 +468,7 @@
     if (f && f.name !== FB.editing) {
       FB.editing = f.name;
       FB.s = f.settings;
+      FB.s.line = line(FB.s.line).id;
       FB.over = diffFromDefaults(FB.s);
       if (!silent) renderAll();
     } else if (!f && FB.editing) {

@@ -5,6 +5,7 @@
 (function (global) {
   'use strict';
   function on(v) { return v === true || v === 'true' || v === 1 || v === '1'; }
+  function n(v) { v = parseFloat(v); return isNaN(v) ? 0 : v; }
 
   var V = function (s) { return s.infill === 'vertical'; };
   var HZ = function (s) { return s.infill === 'horizontal'; };
@@ -18,7 +19,7 @@
 
   var SECTIONS = [
     { id: 'construction', title: 'Construction type', catalogOnly: true, fields: [
-      { k: 'infill', t: 'sel', label: 'Infill type', o: [['vertical', 'Vertical pickets / boards'], ['horizontal', 'Horizontal boards / rails'], ['chain_link', 'Chain link fabric']] }
+      { k: 'infill', t: 'sel', label: 'Infill type', o: [['vertical', 'Vertical pickets / boards'], ['horizontal', 'Horizontal boards / rails'], ['chain_link', 'Chain link fabric'], ['netting', 'Netting on poles (ball stop)']] }
     ] },
     { id: 'size', title: 'Size & spacing', fields: [
       { k: 'height', t: 'len', label: 'Fence height', chips: 'heights' },
@@ -66,7 +67,17 @@
       { k: 'mid_rail', t: 'chk', label: 'Middle rail' },
       { k: 'bottom_rail', t: 'chk', label: 'Bottom rail (else tension wire)' },
       { k: 'slats', t: 'chk', label: 'Privacy slats' },
-      { k: 'barbed', t: 'int', label: 'Barbed wire strands', chips: [0, 3] }
+      { k: 'barbed', t: 'int', label: 'Barbed wire strands', chips: [0, 3] },
+      { k: 'windscreen', t: 'chk', label: 'Windscreen' },
+      { k: 'windscreen_h', t: 'len', label: 'Windscreen height (0 = 1\' less than fence)', chips: [72, 96, 108], show: function (s) { return on(s.windscreen); } },
+      { k: 'windscreen_color', t: 'icolor', label: 'Windscreen color', show: function (s) { return on(s.windscreen); } },
+      { k: 'net_above', t: 'len', label: 'Ball-stop netting above fence (0 = none)', chips: [0, 72, 120, 240] },
+      { k: 'net_color', t: 'icolor', label: 'Netting color', show: function (s) { return n(s.net_above) > 0; } },
+      { k: 'net_cables', t: 'int', label: 'Net support cables', chips: [2, 3], show: function (s) { return n(s.net_above) > 0; } }
+    ] },
+    { id: 'netting', title: 'Netting', show: function (s) { return s.infill === 'netting'; }, fields: [
+      { k: 'net_cables', t: 'int', label: 'Support cables (top, bottom, extra)', chips: [2, 3, 4] },
+      { k: 'infill_color', t: 'icolor', label: 'Netting color' }
     ] },
     { id: 'posts', title: 'Posts', fields: [
       { k: 'post_size', t: 'len', label: 'Line post size' },

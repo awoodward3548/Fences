@@ -1,340 +1,2725 @@
 {
   "version": 1,
-  "disclaimer": "Dimensions are nominal values for modeling and estimating. Manufacturer specs change and vary by grade and region. Check the current manufacturer data sheets before ordering or building.",
-
+  "disclaimer": "Dimensions come from manufacturer literature, distributor spec sheets and Sweets/ARCAT listings where available (see each line's sources); values marked 'nominal' were not published in the sources found. Manufacturers change specs. Check the current data sheet before ordering or building.",
   "colors": {
-    "black":            { "name": "Black",              "rgb": [28, 28, 28] },
-    "bronze":           { "name": "Bronze",             "rgb": [72, 56, 40] },
-    "white":            { "name": "White",              "rgb": [242, 242, 238] },
-    "desert_sand":      { "name": "Desert Sand",        "rgb": [201, 182, 146] },
-    "galvanized":       { "name": "Galvanized",         "rgb": [168, 172, 176] },
-    "green":            { "name": "Green",              "rgb": [38, 88, 52] },
-    "brown":            { "name": "Brown",              "rgb": [92, 66, 46] },
-    "cedar":            { "name": "Cedar",              "rgb": [178, 112, 68] },
-    "pressure_treated": { "name": "Pressure Treated",   "rgb": [160, 140, 98] },
-    "redwood":          { "name": "Redwood",            "rgb": [140, 72, 52] },
-    "weathered_gray":   { "name": "Weathered Gray",     "rgb": [142, 137, 126] },
-    "pine":             { "name": "Natural Pine",       "rgb": [218, 188, 138] },
-    "tan":              { "name": "Tan",                "rgb": [214, 196, 162] },
-    "clay":             { "name": "Clay",               "rgb": [190, 170, 146] },
-    "gray":             { "name": "Gray",               "rgb": [150, 150, 150] }
+    "black": {
+      "name": "Black",
+      "rgb": [
+        28,
+        28,
+        28
+      ]
+    },
+    "bronze": {
+      "name": "Bronze",
+      "rgb": [
+        72,
+        56,
+        40
+      ]
+    },
+    "white": {
+      "name": "White",
+      "rgb": [
+        242,
+        242,
+        238
+      ]
+    },
+    "desert_sand": {
+      "name": "Desert Sand",
+      "rgb": [
+        201,
+        182,
+        146
+      ]
+    },
+    "galvanized": {
+      "name": "Galvanized",
+      "rgb": [
+        168,
+        172,
+        176
+      ]
+    },
+    "green": {
+      "name": "Green",
+      "rgb": [
+        38,
+        88,
+        52
+      ]
+    },
+    "brown": {
+      "name": "Brown",
+      "rgb": [
+        92,
+        66,
+        46
+      ]
+    },
+    "cedar": {
+      "name": "Cedar",
+      "rgb": [
+        178,
+        112,
+        68
+      ]
+    },
+    "pressure_treated": {
+      "name": "Pressure Treated",
+      "rgb": [
+        160,
+        140,
+        98
+      ]
+    },
+    "redwood": {
+      "name": "Redwood",
+      "rgb": [
+        140,
+        72,
+        52
+      ]
+    },
+    "weathered_gray": {
+      "name": "Weathered Gray",
+      "rgb": [
+        142,
+        137,
+        126
+      ]
+    },
+    "pine": {
+      "name": "Natural Pine",
+      "rgb": [
+        218,
+        188,
+        138
+      ]
+    },
+    "tan": {
+      "name": "Tan",
+      "rgb": [
+        214,
+        196,
+        162
+      ]
+    },
+    "clay": {
+      "name": "Clay",
+      "rgb": [
+        190,
+        170,
+        146
+      ]
+    },
+    "gray": {
+      "name": "Gray",
+      "rgb": [
+        150,
+        150,
+        150
+      ]
+    },
+    "almond": {
+      "name": "Almond",
+      "rgb": [
+        232,
+        222,
+        200
+      ]
+    },
+    "woodland_brown": {
+      "name": "Woodland Brown",
+      "rgb": [
+        110,
+        80,
+        58
+      ]
+    },
+    "saddle": {
+      "name": "Saddle",
+      "rgb": [
+        146,
+        108,
+        74
+      ]
+    },
+    "winchester_grey": {
+      "name": "Winchester Grey",
+      "rgb": [
+        128,
+        124,
+        117
+      ]
+    },
+    "beige": {
+      "name": "Beige",
+      "rgb": [
+        214,
+        200,
+        170
+      ]
+    },
+    "khaki": {
+      "name": "Khaki",
+      "rgb": [
+        190,
+        172,
+        136
+      ]
+    },
+    "navy": {
+      "name": "Navy",
+      "rgb": [
+        32,
+        44,
+        74
+      ]
+    },
+    "royal_blue": {
+      "name": "Royal Blue",
+      "rgb": [
+        36,
+        74,
+        160
+      ]
+    },
+    "maroon": {
+      "name": "Maroon",
+      "rgb": [
+        104,
+        32,
+        40
+      ]
+    }
   },
-
   "kinds": {
-    "ornamental": { "name": "Ornamental" },
-    "chain_link": { "name": "Chain Link" },
-    "wood":       { "name": "Wood" },
-    "vinyl":      { "name": "Vinyl" }
+    "ornamental": {
+      "name": "Ornamental"
+    },
+    "chain_link": {
+      "name": "Chain Link"
+    },
+    "sports": {
+      "name": "Sports"
+    },
+    "wood": {
+      "name": "Wood"
+    },
+    "vinyl": {
+      "name": "Vinyl"
+    },
+    "composite": {
+      "name": "Composite"
+    }
   },
-
   "base": {
-    "height": 72, "post_spacing": 96, "spacing_mode": "equal", "clearance": 2,
-    "infill": "vertical", "layout": "single", "rail_mount": "center",
-    "picket_w": 0.75, "picket_d": 0.75, "air_space": 3.625,
-    "rails": 3, "rail_w": 1.75, "rail_h": 1.75,
-    "top": "flush", "top_ext": 0, "finial": "flat", "bottom": "flush", "bottom_ext": 0,
-    "curve": "none", "curve_h": 6,
-    "puppy": false, "puppy_h": 14,
-    "lattice_h": 0, "cap": false, "trim": false, "cap_w": 5.5, "cap_t": 1.5, "kickboard": false, "kick_h": 5.5,
-    "board_h": 5.5, "board_t": 0.75, "board_gap": 0.5, "h_count": 0, "h_mount": "face",
-    "post_shape": "square", "post_size": 2.5, "terminal_post_size": 0, "gate_post_size": 4,
-    "post_cap": "flat", "post_above": 1,
-    "rail_od": 1.66, "mid_rail": false, "bottom_rail": false, "barbed": 0, "slats": false,
-    "slope_mode": "auto", "max_rack": 30, "corner_angle": 15,
-    "color": "black", "infill_color": "",
-    "gate_type": "auto", "gate_single_max": 72, "gate_hinge_gap": 1, "gate_latch_gap": 1,
-    "gate_center_gap": 1, "gate_frame": 1.75, "gate_brace": false, "gate_arch": "none",
-    "gate_arch_h": 8, "gate_open": 0, "gate_flip": false, "gate_clearance": 2,
-    "show_footings": false, "embed_depth": 30, "footing_dia": 10
+    "height": 72,
+    "post_spacing": 96,
+    "spacing_mode": "equal",
+    "clearance": 2,
+    "infill": "vertical",
+    "layout": "single",
+    "rail_mount": "center",
+    "picket_w": 0.75,
+    "picket_d": 0.75,
+    "air_space": 3.625,
+    "rails": 3,
+    "rail_w": 1.75,
+    "rail_h": 1.75,
+    "top": "flush",
+    "top_ext": 0,
+    "finial": "flat",
+    "bottom": "flush",
+    "bottom_ext": 0,
+    "curve": "none",
+    "curve_h": 6,
+    "puppy": false,
+    "puppy_h": 14,
+    "lattice_h": 0,
+    "cap": false,
+    "trim": false,
+    "cap_w": 5.5,
+    "cap_t": 1.5,
+    "kickboard": false,
+    "kick_h": 5.5,
+    "board_h": 5.5,
+    "board_t": 0.75,
+    "board_gap": 0.5,
+    "h_count": 0,
+    "h_mount": "face",
+    "post_shape": "square",
+    "post_size": 2.5,
+    "terminal_post_size": 0,
+    "gate_post_size": 4,
+    "post_cap": "flat",
+    "post_above": 1,
+    "rail_od": 1.66,
+    "mid_rail": false,
+    "bottom_rail": false,
+    "barbed": 0,
+    "slats": false,
+    "slope_mode": "auto",
+    "max_rack": 30,
+    "corner_angle": 15,
+    "color": "black",
+    "infill_color": "",
+    "gate_type": "auto",
+    "gate_single_max": 72,
+    "gate_hinge_gap": 1,
+    "gate_latch_gap": 1,
+    "gate_center_gap": 1,
+    "gate_frame": 1.75,
+    "gate_brace": false,
+    "gate_arch": "none",
+    "gate_arch_h": 8,
+    "gate_open": 0,
+    "gate_flip": false,
+    "gate_clearance": 2,
+    "show_footings": false,
+    "embed_depth": 30,
+    "footing_dia": 10,
+    "windscreen": false,
+    "windscreen_h": 0,
+    "windscreen_color": "green",
+    "net_above": 0,
+    "net_color": "black",
+    "net_cables": 2
   },
-
   "lines": [
     {
-      "id": "montage_plus", "name": "Montage Plus", "brand": "Ameristar", "kind": "ornamental",
-      "material": "Galvanized steel, powder coated", "grade": "Residential / Commercial",
-      "description": "Steel ornamental panels on ForeRunner rails, rackable to follow grade. 3/4\" pickets, 8' panels.",
-      "heights": [36, 42, 48, 54, 60, 72, 84, 96],
-      "colors": ["black", "bronze", "white", "desert_sand"],
-      "styles": ["majestic", "genesis", "classic", "invincible", "warrior"],
-      "post_rules": [[60, 2.5], [999, 3.0]],
-      "defaults": { "post_spacing": 96, "picket_w": 0.75, "picket_d": 0.75, "air_space": 3.625,
-                    "rail_w": 1.75, "rail_h": 1.75, "gate_post_size": 4, "max_rack": 30,
-                    "gate_frame": 1.75, "embed_depth": 30, "footing_dia": 10, "puppy_h": 14 }
+      "id": "montage_plus",
+      "name": "Montage Plus",
+      "brand": "Ameristar",
+      "kind": "ornamental",
+      "material": "Galvanized steel, powder coated (welded)",
+      "grade": "Premium residential / light commercial",
+      "description": "Welded steel panels on ForeRunner rails. 3/4\" pickets with 4\" air space (3\" on Pet, Pool & Play).",
+      "heights": [
+        36,
+        42,
+        48,
+        54,
+        60,
+        72,
+        84,
+        96
+      ],
+      "colors": [
+        "black",
+        "bronze",
+        "white",
+        "desert_sand"
+      ],
+      "styles": [
+        "majestic",
+        "classic",
+        "genesis",
+        "warrior"
+      ],
+      "post_rules": [
+        [
+          72,
+          2.5
+        ],
+        [
+          999,
+          2.5
+        ]
+      ],
+      "spec": {
+        "Pickets": "3/4\" sq, 18 ga",
+        "Rails": "ForeRunner 1-7/16\" w x 1-1/2\" h, 14 ga",
+        "Posts": "2-1/2\" sq, 16 ga up to 6'; 14 ga for 7'-8'",
+        "Post spacing": "95\" O.C.",
+        "Max rack": "nominal (not published in sources found)"
+      },
+      "sources": [
+        "https://ameristarperimeter.com/site-documents/resource-pages/Montage%20Comparison%20Chart.pdf",
+        "https://sweets.construction.com/manufacturer/ameristar-fence-products-nst1766/products/montage-plus-premium-residential---light-commercial-steel-fence-nst761277-p"
+      ],
+      "defaults": {
+        "post_spacing": 95,
+        "picket_w": 0.75,
+        "picket_d": 0.75,
+        "air_space": 4.0,
+        "rail_w": 1.4375,
+        "rail_h": 1.5,
+        "gate_post_size": 4,
+        "max_rack": 30,
+        "gate_frame": 1.75,
+        "embed_depth": 30,
+        "footing_dia": 10,
+        "height": 72
+      }
     },
     {
-      "id": "montage_ii", "name": "Montage II", "brand": "Ameristar", "kind": "ornamental",
-      "material": "Galvanized steel, powder coated", "grade": "Residential / Light Commercial",
-      "description": "Value steel ornamental line with 3/4\" pickets on 8' panels and limited racking.",
-      "heights": [36, 42, 48, 54, 60, 72],
-      "colors": ["black", "bronze", "white", "desert_sand"],
-      "styles": ["majestic", "genesis", "classic", "invincible"],
-      "post_rules": [[60, 2.5], [999, 3.0]],
-      "defaults": { "post_spacing": 96, "picket_w": 0.75, "picket_d": 0.75, "air_space": 3.625,
-                    "rail_w": 1.5, "rail_h": 1.5, "gate_post_size": 4, "max_rack": 12,
-                    "gate_frame": 1.5, "embed_depth": 30, "footing_dia": 10 }
+      "id": "echelon_plus",
+      "name": "Echelon Plus",
+      "brand": "Ameristar",
+      "kind": "ornamental",
+      "material": "Aluminum, powder coated",
+      "grade": "Commercial (residential now sold through Jerith)",
+      "description": "Aluminum panels on ForeRunner rails that follow grade. 3- and 4-rail panels, 4\" air space.",
+      "heights": [
+        36,
+        42,
+        48,
+        54,
+        60,
+        72
+      ],
+      "colors": [
+        "black",
+        "bronze",
+        "white",
+        "desert_sand"
+      ],
+      "styles": [
+        "classic",
+        "majestic",
+        "genesis",
+        "warrior"
+      ],
+      "post_rules": [
+        [
+          999,
+          2.5
+        ]
+      ],
+      "spec": {
+        "Pickets": ".75\" sq x .045\" wall",
+        "Rails": "ForeRunner 1.4375\" w x 1.25\" h",
+        "Posts": "2.5\" sq x .060\" with internal web",
+        "Panel": "8' wide (post spacing nominal)"
+      },
+      "sources": [
+        "https://sweets.construction.com/manufacturer/ameristar-fence-products-nst1766/products/echelon-plus-commercial-aluminum-fence-nst761283-p"
+      ],
+      "defaults": {
+        "post_spacing": 95,
+        "picket_w": 0.75,
+        "picket_d": 0.75,
+        "air_space": 4.0,
+        "rail_w": 1.4375,
+        "rail_h": 1.25,
+        "gate_post_size": 3,
+        "max_rack": 18,
+        "gate_frame": 1.5,
+        "embed_depth": 24,
+        "footing_dia": 8,
+        "height": 60
+      }
     },
     {
-      "id": "echelon_plus", "name": "Echelon Plus", "brand": "Ameristar", "kind": "ornamental",
-      "material": "Aluminum, powder coated", "grade": "Residential / Commercial",
-      "description": "Aluminum ornamental panels on 6' sections, rust-free and rackable.",
-      "heights": [36, 42, 48, 54, 60, 72],
-      "colors": ["black", "bronze", "white", "desert_sand"],
-      "styles": ["majestic", "genesis", "classic", "invincible", "warrior"],
-      "post_rules": [[999, 2.5]],
-      "defaults": { "post_spacing": 72, "picket_w": 0.75, "picket_d": 0.75, "air_space": 3.625,
-                    "rail_w": 1.25, "rail_h": 1.5, "gate_post_size": 3, "max_rack": 18,
-                    "gate_frame": 1.5, "embed_depth": 24, "footing_dia": 8 }
+      "id": "echelon_ii",
+      "name": "Echelon II",
+      "brand": "Ameristar",
+      "kind": "ornamental",
+      "material": "Aluminum, powder coated",
+      "grade": "Industrial & security",
+      "description": "Heavy aluminum with 1\" pickets and 1.75\" rails, 4'-10' heights.",
+      "heights": [
+        48,
+        60,
+        72,
+        84,
+        96,
+        108,
+        120
+      ],
+      "colors": [
+        "black",
+        "bronze",
+        "white",
+        "desert_sand"
+      ],
+      "styles": [
+        "classic",
+        "majestic",
+        "genesis",
+        "invincible"
+      ],
+      "post_rules": [
+        [
+          72,
+          2.5
+        ],
+        [
+          999,
+          3.0
+        ]
+      ],
+      "spec": {
+        "Pickets": "1\" sq",
+        "Rails": "1.75\" sq",
+        "Posts": "2.5\" or 3\" sq"
+      },
+      "sources": [
+        "https://sweets.construction.com/Manufacturer/Ameristar-Fence-Products-NST1766/products/Echelon-II-Industrial---Security-Aluminum-Fence-NST761281-P"
+      ],
+      "defaults": {
+        "post_spacing": 96,
+        "picket_w": 1.0,
+        "picket_d": 1.0,
+        "air_space": 4.0,
+        "rail_w": 1.75,
+        "rail_h": 1.75,
+        "gate_post_size": 4,
+        "max_rack": 12,
+        "gate_frame": 1.75,
+        "embed_depth": 36,
+        "footing_dia": 12,
+        "height": 72
+      }
     },
     {
-      "id": "aegis_plus", "name": "Aegis Plus", "brand": "Ameristar", "kind": "ornamental",
-      "material": "Galvanized steel, powder coated", "grade": "Industrial",
-      "description": "Heavy industrial steel with 1\" pickets and heavy-wall posts, rackable 8' panels.",
-      "heights": [48, 60, 72, 84, 96, 108, 120],
-      "colors": ["black", "bronze", "white", "desert_sand"],
-      "styles": ["majestic", "genesis", "classic", "invincible", "warrior"],
-      "post_rules": [[72, 3.0], [999, 4.0]],
-      "defaults": { "post_spacing": 96, "picket_w": 1.0, "picket_d": 1.0, "air_space": 3.625,
-                    "rail_w": 1.75, "rail_h": 1.75, "gate_post_size": 6, "max_rack": 30,
-                    "gate_frame": 2.0, "embed_depth": 36, "footing_dia": 12 }
+      "id": "aegis_plus",
+      "name": "Aegis Plus",
+      "brand": "Ameristar",
+      "kind": "ornamental",
+      "material": "Galvanized steel, powder coated",
+      "grade": "Light commercial",
+      "description": "Steel with 3/4\" pickets on ForeRunner rails. Custom heights, rail spacing and colors available.",
+      "heights": [
+        36,
+        42,
+        48,
+        54,
+        60,
+        72,
+        84,
+        96
+      ],
+      "colors": [
+        "black",
+        "bronze",
+        "white",
+        "desert_sand"
+      ],
+      "styles": [
+        "majestic",
+        "classic",
+        "genesis",
+        "invincible",
+        "warrior"
+      ],
+      "post_rules": [
+        [
+          999,
+          2.5
+        ]
+      ],
+      "spec": {
+        "Pickets": ".75\" sq, 17 ga",
+        "Rails": "ForeRunner 1.5\" x 1.5\", 14 ga",
+        "Posts": "2.5\" sq, 12 ga",
+        "Air space": "4\" standard"
+      },
+      "sources": [
+        "https://sweets.construction.com/manufacturer/ameristar-fence-products-nst1766/products/aegis-plus-light-commercial-steel-fence-nst761286-p"
+      ],
+      "defaults": {
+        "post_spacing": 95,
+        "picket_w": 0.75,
+        "picket_d": 0.75,
+        "air_space": 4.0,
+        "rail_w": 1.5,
+        "rail_h": 1.5,
+        "gate_post_size": 4,
+        "max_rack": 30,
+        "gate_frame": 1.75,
+        "embed_depth": 30,
+        "footing_dia": 10,
+        "height": 72
+      }
     },
     {
-      "id": "aegis_ii", "name": "Aegis II", "brand": "Ameristar", "kind": "ornamental",
-      "material": "Galvanized steel, powder coated", "grade": "Commercial / Industrial",
-      "description": "Commercial steel with 1\" pickets. A strong all-around commercial panel.",
-      "heights": [48, 60, 72, 84, 96, 120],
-      "colors": ["black", "bronze", "white", "desert_sand"],
-      "styles": ["majestic", "genesis", "classic", "invincible"],
-      "post_rules": [[72, 3.0], [999, 4.0]],
-      "defaults": { "post_spacing": 96, "picket_w": 1.0, "picket_d": 1.0, "air_space": 3.625,
-                    "rail_w": 1.75, "rail_h": 1.75, "gate_post_size": 6, "max_rack": 12,
-                    "gate_frame": 2.0, "embed_depth": 36, "footing_dia": 12 }
+      "id": "aegis_ii",
+      "name": "Aegis II",
+      "brand": "Ameristar",
+      "kind": "ornamental",
+      "material": "Galvanized steel, powder coated",
+      "grade": "Industrial & security",
+      "description": "1\" 14 ga pickets in 1.75\" double-wall rails, 3'-10' heights.",
+      "heights": [
+        36,
+        42,
+        48,
+        60,
+        72,
+        84,
+        96,
+        108,
+        120
+      ],
+      "colors": [
+        "black",
+        "bronze",
+        "white",
+        "desert_sand"
+      ],
+      "styles": [
+        "majestic",
+        "classic",
+        "genesis",
+        "invincible"
+      ],
+      "post_rules": [
+        [
+          72,
+          2.5
+        ],
+        [
+          999,
+          3.0
+        ]
+      ],
+      "spec": {
+        "Pickets": "1\" sq, 14 ga (holes 4.715\" O.C.)",
+        "Rails": "1.75\" sq double wall",
+        "Posts": "2.5\" or 3\" sq, 12 ga"
+      },
+      "sources": [
+        "https://sweets.construction.com/manufacturer/ameristar-fence-products-nst1766/products/aegis-ii-industrial---security-steel-fence-nst761287-p"
+      ],
+      "defaults": {
+        "post_spacing": 96,
+        "picket_w": 1.0,
+        "picket_d": 1.0,
+        "air_space": 3.715,
+        "rail_w": 1.75,
+        "rail_h": 1.75,
+        "gate_post_size": 6,
+        "max_rack": 12,
+        "gate_frame": 2.0,
+        "embed_depth": 36,
+        "footing_dia": 12,
+        "height": 72
+      }
     },
     {
-      "id": "impasse_ii", "name": "Impasse II", "brand": "Ameristar", "kind": "ornamental",
-      "material": "Galvanized steel, powder coated", "grade": "High Security",
-      "description": "High-security steel with pointed Omega pickets and heavy posts, for 7'-14' perimeters.",
-      "heights": [84, 96, 108, 120, 144, 168],
-      "colors": ["black", "bronze", "white", "desert_sand"],
-      "styles": ["trident", "invincible"],
-      "post_rules": [[96, 4.0], [999, 6.0]],
-      "defaults": { "post_spacing": 96, "picket_w": 1.75, "picket_d": 1.0, "air_space": 3.0,
-                    "rail_w": 2.5, "rail_h": 2.0, "gate_post_size": 6, "max_rack": 12,
-                    "gate_frame": 2.5, "embed_depth": 42, "footing_dia": 16, "height": 96 }
+      "id": "impasse_ii",
+      "name": "Impasse II",
+      "brand": "Ameristar",
+      "kind": "ornamental",
+      "material": "Galvanized steel, powder coated",
+      "grade": "High security palisade",
+      "description": "Corrugated 2.75\" pales, 3.25\" pale spacing (1.5\" anti-scale), I-beam posts.",
+      "heights": [
+        72,
+        84,
+        96,
+        108,
+        120
+      ],
+      "colors": [
+        "black",
+        "bronze",
+        "white",
+        "desert_sand"
+      ],
+      "styles": [
+        "trident",
+        "gauntlet"
+      ],
+      "post_rules": [
+        [
+          96,
+          3.0
+        ],
+        [
+          999,
+          4.0
+        ]
+      ],
+      "spec": {
+        "Pales": "2.75\" wide, 14 ga (corrugated)",
+        "Rails": "2\" x 2\", 11 ga",
+        "Posts": "I-beam 3\" x 2.75\" (7-8'), 4\" x 2.75\" (9-10')",
+        "Note": "posts drawn square; panel width nominal"
+      },
+      "sources": [
+        "https://sweets.construction.com/Manufacturer/Ameristar-Fence-Products-NST1766/Products/Impasse-II-High-Security-Steel-Palisade-Fence-NST761310-P"
+      ],
+      "defaults": {
+        "post_spacing": 96,
+        "picket_w": 2.75,
+        "picket_d": 0.75,
+        "air_space": 3.25,
+        "rail_w": 2.0,
+        "rail_h": 2.0,
+        "gate_post_size": 6,
+        "max_rack": 12,
+        "gate_frame": 2.5,
+        "embed_depth": 42,
+        "footing_dia": 16,
+        "height": 96
+      }
     },
     {
-      "id": "cl_residential", "name": "Residential Chain Link", "brand": "Generic", "kind": "chain_link",
-      "material": "Galvanized or vinyl coated steel", "grade": "Residential (11.5 ga, 2\" mesh)",
-      "description": "Light residential chain link with 1-7/8\" line posts and 1-3/8\" top rail.",
-      "heights": [36, 42, 48, 60, 72],
-      "colors": ["galvanized", "black", "green", "brown"],
-      "styles": ["cl_standard", "cl_top_bottom", "cl_slats"],
-      "post_rules": [[999, 1.875]],
-      "defaults": { "infill": "chain_link", "post_shape": "round", "post_spacing": 120,
-                    "terminal_post_size": 2.375, "gate_post_size": 2.375, "rail_od": 1.375,
-                    "color": "galvanized", "infill_color": "galvanized", "max_rack": 999,
-                    "post_cap": "dome", "post_above": 0, "gate_frame": 1.375, "gate_single_max": 60,
-                    "embed_depth": 24, "footing_dia": 8, "height": 48 }
+      "id": "jerith_legacy",
+      "name": "Legacy",
+      "brand": "Jerith",
+      "kind": "ornamental",
+      "material": "Aluminum, powder coated",
+      "grade": "Residential",
+      "description": "5/8\" pickets on 1\" rails, 72-1/2\" post spacing on 2\" posts. Made in Philadelphia.",
+      "heights": [
+        36,
+        42,
+        48,
+        54,
+        60,
+        72
+      ],
+      "colors": [
+        "black",
+        "white",
+        "bronze"
+      ],
+      "styles": [
+        "jerith_202",
+        "alu_spear_top",
+        "alu_extended_top",
+        "alu_puppy"
+      ],
+      "post_rules": [
+        [
+          999,
+          2.0
+        ]
+      ],
+      "spec": {
+        "Pickets": "5/8\" sq x .050\"",
+        "Rails": "1\" x 1\" (.082 side / .055 top)",
+        "Posts": "2\" sq x .060\" (up to 4\" available)",
+        "Air space": "3-13/16\"",
+        "Heights": "nominal (Legacy height chart not readable in source)"
+      },
+      "sources": [
+        "https://hooverfence.com/mas_assets/media/hooverfence/pdfs/jerith-legacy-brochure.pdf"
+      ],
+      "defaults": {
+        "post_spacing": 72.5,
+        "picket_w": 0.625,
+        "picket_d": 0.625,
+        "air_space": 3.8125,
+        "rail_w": 1.0,
+        "rail_h": 1.0,
+        "gate_post_size": 2.5,
+        "max_rack": 12,
+        "gate_frame": 1.0,
+        "embed_depth": 24,
+        "footing_dia": 8,
+        "height": 48
+      }
     },
     {
-      "id": "cl_commercial", "name": "Commercial Chain Link", "brand": "Generic", "kind": "chain_link",
-      "material": "Galvanized or vinyl coated steel", "grade": "Commercial (9 ga, 2\" mesh)",
-      "description": "Commercial chain link with 2-3/8\" line posts, 2-7/8\" terminals and 1-5/8\" top rail.",
-      "heights": [48, 60, 72, 84, 96, 120, 144],
-      "colors": ["galvanized", "black", "green", "brown"],
-      "styles": ["cl_standard", "cl_top_bottom", "cl_3rail", "cl_slats", "cl_barbed"],
-      "post_rules": [[999, 2.375]],
-      "defaults": { "infill": "chain_link", "post_shape": "round", "post_spacing": 120,
-                    "terminal_post_size": 2.875, "gate_post_size": 4.0, "rail_od": 1.66,
-                    "color": "galvanized", "infill_color": "galvanized", "max_rack": 999,
-                    "post_cap": "dome", "post_above": 0, "gate_frame": 1.9, "gate_single_max": 72,
-                    "embed_depth": 36, "footing_dia": 10, "height": 72 }
+      "id": "jerith_premier",
+      "name": "Premier",
+      "brand": "Jerith",
+      "kind": "ornamental",
+      "material": "Aluminum, powder coated",
+      "grade": "Residential / light commercial",
+      "description": "3/4\" pickets on 1.5\" x 1\" rails, 2.5\" posts at 72-1/2\" on center.",
+      "heights": [
+        36,
+        42,
+        48,
+        54,
+        60,
+        72
+      ],
+      "colors": [
+        "black",
+        "white",
+        "bronze"
+      ],
+      "styles": [
+        "jerith_202",
+        "alu_spear_top",
+        "alu_extended_top",
+        "alu_puppy"
+      ],
+      "post_rules": [
+        [
+          999,
+          2.5
+        ]
+      ],
+      "spec": {
+        "Pickets": "3/4\" sq x .050\"",
+        "Rails": "1.5\" (.080 side) x 1.0\" (.055 top)",
+        "Posts": "2.5\" sq x .075\" (.125\" option)",
+        "Air space": "3.970\" (1.610\" double picket)"
+      },
+      "sources": [
+        "https://www.hooverfence.com/jerith-aluminum-fence-premier",
+        "https://www.hooverfence.com/mas_assets/media/hooverfence/pdfs/jerith-premier-brochure.pdf"
+      ],
+      "defaults": {
+        "post_spacing": 72.5,
+        "picket_w": 0.75,
+        "picket_d": 0.75,
+        "air_space": 3.97,
+        "rail_w": 1.0,
+        "rail_h": 1.5,
+        "gate_post_size": 3,
+        "max_rack": 12,
+        "gate_frame": 1.5,
+        "embed_depth": 24,
+        "footing_dia": 8,
+        "height": 48
+      }
     },
     {
-      "id": "cl_security", "name": "Security Chain Link", "brand": "Generic", "kind": "chain_link",
-      "material": "Galvanized steel", "grade": "Security (9 ga, barbed wire)",
-      "description": "Commercial chain link with top and bottom rails and three strands of barbed wire on 45 degree arms.",
-      "heights": [72, 84, 96, 120, 144],
-      "colors": ["galvanized", "black", "green"],
-      "styles": ["cl_barbed", "cl_3rail"],
-      "post_rules": [[999, 2.875]],
-      "defaults": { "infill": "chain_link", "post_shape": "round", "post_spacing": 120,
-                    "terminal_post_size": 4.0, "gate_post_size": 6.625, "rail_od": 1.66,
-                    "color": "galvanized", "infill_color": "galvanized", "max_rack": 999,
-                    "post_cap": "dome", "post_above": 0, "gate_frame": 1.9, "gate_single_max": 72,
-                    "embed_depth": 42, "footing_dia": 12, "height": 84, "bottom_rail": true }
+      "id": "jerith_aero",
+      "name": "Aero",
+      "brand": "Jerith",
+      "kind": "ornamental",
+      "material": "Aluminum, powder coated (rounded edges)",
+      "grade": "Residential / commercial",
+      "description": "Rounded 1\" x 5/8\" pickets (formerly Delgard). 3 rails standard, 4 rails at 6'. ~8' sections.",
+      "heights": [
+        36,
+        42,
+        48,
+        54,
+        60,
+        72
+      ],
+      "colors": [
+        "black",
+        "white",
+        "bronze"
+      ],
+      "styles": [
+        "alu_flat_top",
+        "alu_spear_top",
+        "alu_extended_top"
+      ],
+      "post_rules": [
+        [
+          999,
+          2.5
+        ]
+      ],
+      "spec": {
+        "Pickets": "1\" x 5/8\" x .050\" rounded",
+        "Rails": "1-1/2\" (.070 side) x 1-1/8\" (.060 top)",
+        "Posts": "2-1/2\" sq x .075\"",
+        "Post spacing": "100-3/4\" O.C. (71\" for style #000)",
+        "Air space": "3.966\""
+      },
+      "sources": [
+        "https://www.hooverfence.com/mas_assets/media/hooverfence/pdfs/jerith-specification-comparison.pdf"
+      ],
+      "defaults": {
+        "post_spacing": 100.75,
+        "picket_w": 0.625,
+        "picket_d": 1.0,
+        "air_space": 3.966,
+        "rail_w": 1.125,
+        "rail_h": 1.5,
+        "gate_post_size": 3,
+        "max_rack": 12,
+        "gate_frame": 1.5,
+        "embed_depth": 24,
+        "footing_dia": 8,
+        "height": 60
+      }
     },
     {
-      "id": "wood_privacy", "name": "Wood Privacy", "brand": "Generic", "kind": "wood",
-      "material": "Cedar or pressure-treated pine", "grade": "4x4 posts, 2x4 rails, 1x6 boards",
-      "description": "Board privacy fence on back-mounted 2x4 rails. Stockade, shadowbox, board-on-board, cap & trim and lattice styles.",
-      "heights": [48, 60, 72, 84, 96],
-      "colors": ["cedar", "pressure_treated", "redwood", "weathered_gray", "pine", "white"],
-      "styles": ["stockade_dogear", "flat_privacy", "shadowbox", "board_on_board", "cap_trim", "lattice_top"],
-      "post_rules": [[999, 3.5]],
-      "defaults": { "post_spacing": 96, "picket_w": 5.5, "picket_d": 0.625, "air_space": 0,
-                    "rail_mount": "back", "rail_w": 1.5, "rail_h": 3.5, "top": "extended", "top_ext": 8,
-                    "bottom": "extended", "bottom_ext": 6, "finial": "dogear", "post_cap": "flat",
-                    "post_above": 0, "gate_post_size": 5.5, "max_rack": 999, "color": "cedar",
-                    "gate_frame": 3.5, "gate_brace": true, "gate_single_max": 60,
-                    "embed_depth": 30, "footing_dia": 10 }
+      "id": "jerith_industrial",
+      "name": "Industrial",
+      "brand": "Jerith",
+      "kind": "ornamental",
+      "material": "Aluminum, powder coated",
+      "grade": "Industrial",
+      "description": "1\" pickets in 1-5/8\" rails, 4\" spacing, 90\" post spacing.",
+      "heights": [
+        36,
+        42,
+        48,
+        54,
+        60,
+        72,
+        84,
+        96
+      ],
+      "colors": [
+        "black",
+        "white",
+        "bronze"
+      ],
+      "styles": [
+        "alu_flat_top",
+        "alu_spear_top",
+        "alu_extended_top"
+      ],
+      "post_rules": [
+        [
+          72,
+          2.5
+        ],
+        [
+          999,
+          3.0
+        ]
+      ],
+      "spec": {
+        "Pickets": "1\" sq x .062\"",
+        "Rails": "1-5/8\" (.070 top / .100 side)",
+        "Posts": "2-1/2\" sq x .075\" (3\", 4\", 6\" options)",
+        "Post spacing": "90\" O.C. (brochure; one dealer page says 71-1/2\")"
+      },
+      "sources": [
+        "https://www.hooverfence.com/jerith-aluminum-fence-industrial",
+        "https://www.hooverfence.com/mas_assets/media/hooverfence/pdfs/jerith-industrial-series-brochure.pdf"
+      ],
+      "defaults": {
+        "post_spacing": 90,
+        "picket_w": 1.0,
+        "picket_d": 1.0,
+        "air_space": 4.0,
+        "rail_w": 1.625,
+        "rail_h": 1.625,
+        "gate_post_size": 4,
+        "max_rack": 12,
+        "gate_frame": 1.625,
+        "embed_depth": 30,
+        "footing_dia": 10,
+        "height": 72
+      }
     },
     {
-      "id": "wood_picket", "name": "Wood Picket", "brand": "Generic", "kind": "wood",
-      "material": "Cedar, pine or painted wood", "grade": "4x4 posts, 2x4 rails, 1x4 pickets",
+      "id": "ultra_res",
+      "name": "UAF-200 Residential",
+      "brand": "Ultra Aluminum",
+      "kind": "ornamental",
+      "material": "6005-T5 aluminum, powder coated",
+      "grade": "Residential",
+      "description": "5/8\" pickets on 1-1/8\" x 1\" rails, 6' post spacing.",
+      "heights": [
+        36,
+        42,
+        48,
+        54,
+        60,
+        72
+      ],
+      "colors": [
+        "black",
+        "white",
+        "bronze",
+        "desert_sand"
+      ],
+      "styles": [
+        "alu_flat_top",
+        "alu_spear_top",
+        "alu_extended_top",
+        "alu_puppy"
+      ],
+      "post_rules": [
+        [
+          999,
+          2.0
+        ]
+      ],
+      "spec": {
+        "Pickets": "5/8\" sq x .050\"",
+        "Rails": "1-1/8\" x 1\"",
+        "Posts": "2\" sq (.060/.080/.125) or 2-1/2\" x .100",
+        "Air space": "nominal"
+      },
+      "sources": [
+        "https://www.bimobject.com/en/ultra-aluminum-mfg/product/uaf-200-flat-top-residential-fence"
+      ],
+      "defaults": {
+        "post_spacing": 72,
+        "picket_w": 0.625,
+        "picket_d": 0.625,
+        "air_space": 3.75,
+        "rail_w": 1.0,
+        "rail_h": 1.125,
+        "gate_post_size": 2.5,
+        "max_rack": 12,
+        "gate_frame": 1.0,
+        "embed_depth": 24,
+        "footing_dia": 8,
+        "height": 48
+      }
+    },
+    {
+      "id": "ultra_com",
+      "name": "UAF-200 Commercial",
+      "brand": "Ultra Aluminum",
+      "kind": "ornamental",
+      "material": "6005-T5 aluminum, powder coated",
+      "grade": "Commercial",
+      "description": "3/4\" pickets on 1-1/4\" x 1-3/8\" rails.",
+      "heights": [
+        36,
+        42,
+        48,
+        54,
+        60,
+        72
+      ],
+      "colors": [
+        "black",
+        "white",
+        "bronze",
+        "desert_sand"
+      ],
+      "styles": [
+        "alu_flat_top",
+        "alu_spear_top",
+        "alu_extended_top",
+        "alu_puppy"
+      ],
+      "post_rules": [
+        [
+          999,
+          2.5
+        ]
+      ],
+      "spec": {
+        "Pickets": "3/4\" sq x .055\"",
+        "Rails": "1-1/4\" x 1-3/8\"",
+        "Posts": "2\" (.080/.125), 2-1/2\" (.100) or 3\" (.125) sq",
+        "Air space": "nominal"
+      },
+      "sources": [
+        "https://www.bimobject.com/en/ultra-aluminum-mfg/product/uaf-200-flat-top-commercial-fence"
+      ],
+      "defaults": {
+        "post_spacing": 72,
+        "picket_w": 0.75,
+        "picket_d": 0.75,
+        "air_space": 3.75,
+        "rail_w": 1.25,
+        "rail_h": 1.375,
+        "gate_post_size": 3,
+        "max_rack": 12,
+        "gate_frame": 1.25,
+        "embed_depth": 24,
+        "footing_dia": 8,
+        "height": 60
+      }
+    },
+    {
+      "id": "ultra_ind",
+      "name": "UAF-200 Industrial",
+      "brand": "Ultra Aluminum",
+      "kind": "ornamental",
+      "material": "6005-T5 aluminum, powder coated",
+      "grade": "Industrial",
+      "description": "1\" pickets on 1-5/8\" rails, custom heights up to 12'.",
+      "heights": [
+        36,
+        42,
+        48,
+        54,
+        60,
+        72,
+        96,
+        120,
+        144
+      ],
+      "colors": [
+        "black",
+        "white",
+        "bronze",
+        "desert_sand"
+      ],
+      "styles": [
+        "alu_flat_top",
+        "alu_spear_top",
+        "alu_extended_top"
+      ],
+      "post_rules": [
+        [
+          72,
+          2.5
+        ],
+        [
+          999,
+          3.0
+        ]
+      ],
+      "spec": {
+        "Pickets": "1\" sq x .062\"",
+        "Rails": "1-5/8\" x 1-5/8\"",
+        "Posts": "2-1/2\" (.100) or 3\" (.125) sq",
+        "Over 6'": "custom"
+      },
+      "sources": [
+        "https://www.bimobject.com/en-ca/ultra-aluminum-mfg/product/uaf-200-flat-top-industrial-fence"
+      ],
+      "defaults": {
+        "post_spacing": 72,
+        "picket_w": 1.0,
+        "picket_d": 1.0,
+        "air_space": 3.75,
+        "rail_w": 1.625,
+        "rail_h": 1.625,
+        "gate_post_size": 4,
+        "max_rack": 12,
+        "gate_frame": 1.625,
+        "embed_depth": 30,
+        "footing_dia": 10,
+        "height": 72
+      }
+    },
+    {
+      "id": "mh_cl_residential",
+      "name": "Residential Chain Link",
+      "brand": "Master Halco",
+      "kind": "chain_link",
+      "material": "Galvanized or color-coated steel",
+      "grade": "Residential (11-1/2 ga, 2\" mesh)",
+      "description": "11-1/2 ga fabric on 16 ga posts with a 1-3/8\" 17 ga top rail. Color-coated in black, green, brown.",
+      "heights": [
+        36,
+        42,
+        48,
+        60,
+        72
+      ],
+      "colors": [
+        "galvanized",
+        "black",
+        "green",
+        "brown"
+      ],
+      "styles": [
+        "cl_standard",
+        "cl_top_bottom",
+        "cl_slats"
+      ],
+      "post_rules": [
+        [
+          999,
+          1.625
+        ]
+      ],
+      "spec": {
+        "Fabric": "11-1/2 ga (.113\") min, 2\" mesh, ASTM A392",
+        "Line posts": "1-5/8\" OD, 16-17 ga",
+        "Terminal posts": "2-3/8\" OD, 16 ga",
+        "Top rail": "1-3/8\" OD, 17 ga",
+        "Framework": "ASTM F761 residential"
+      },
+      "sources": [
+        "https://images.thdstatic.com/catalog/pdfImages/f3/f35f94fe-39e3-494e-a4c9-574e89ee9c47.pdf",
+        "https://tractorsupply.com/tsc/product/master-halco-2-3-8-in-x-8ft-16-ga-galvanized-terminal-post-030567"
+      ],
+      "defaults": {
+        "infill": "chain_link",
+        "post_shape": "round",
+        "post_spacing": 120,
+        "terminal_post_size": 2.375,
+        "gate_post_size": 2.375,
+        "rail_od": 1.375,
+        "color": "galvanized",
+        "infill_color": "galvanized",
+        "max_rack": 999,
+        "post_cap": "dome",
+        "post_above": 0,
+        "gate_frame": 1.375,
+        "gate_single_max": 60,
+        "embed_depth": 24,
+        "footing_dia": 8,
+        "height": 48
+      }
+    },
+    {
+      "id": "mm_cl_commercial",
+      "name": "Commercial Chain Link (Schedule 40)",
+      "brand": "Merchants Metals",
+      "kind": "chain_link",
+      "material": "Schedule 40 galvanized pipe (ASTM F1083), galvanized or color-coated fabric",
+      "grade": "Commercial (9 ga, 2\" mesh)",
+      "description": "SS40 framework: 2-3/8\" line posts, 2-7/8\" terminals, 1-5/8\" rails. Also PrivaMax/NatureLink privacy options.",
+      "heights": [
+        48,
+        60,
+        72,
+        84,
+        96,
+        120,
+        144
+      ],
+      "colors": [
+        "galvanized",
+        "black",
+        "green",
+        "brown",
+        "white"
+      ],
+      "styles": [
+        "cl_standard",
+        "cl_top_bottom",
+        "cl_3rail",
+        "cl_slats",
+        "cl_windscreen",
+        "cl_ballstop",
+        "cl_barbed"
+      ],
+      "post_rules": [
+        [
+          999,
+          2.375
+        ]
+      ],
+      "spec": {
+        "Fabric": "9 ga, 2\" mesh",
+        "Line posts": "2-3/8\" OD Sch 40 (.154\" wall, 3.65 lb/ft)",
+        "Terminal posts": "2-7/8\" OD Sch 40 (.203\" wall, 5.80 lb/ft)",
+        "Rails": "1-5/8\" OD Sch 40 (.140\" wall, 2.27 lb/ft)",
+        "Gate posts": "4\" OD Sch 40 (.226\" wall)"
+      },
+      "sources": [
+        "https://www.wheatland.com/wp-content/uploads/2017/12/Fence-Framework-Size-and-Dimensions-Capability-Tables.pdf",
+        "https://www.merchantsmetals.com/wp-content/uploads/2014/05/Schedule-40-Galvanized-Pipe.pdf"
+      ],
+      "defaults": {
+        "infill": "chain_link",
+        "post_shape": "round",
+        "post_spacing": 120,
+        "terminal_post_size": 2.875,
+        "gate_post_size": 4.0,
+        "rail_od": 1.66,
+        "color": "galvanized",
+        "infill_color": "galvanized",
+        "max_rack": 999,
+        "post_cap": "dome",
+        "post_above": 0,
+        "gate_frame": 1.9,
+        "gate_single_max": 72,
+        "embed_depth": 36,
+        "footing_dia": 10,
+        "height": 72
+      }
+    },
+    {
+      "id": "mh_cl_security",
+      "name": "Security Chain Link",
+      "brand": "Master Halco",
+      "kind": "chain_link",
+      "material": "Schedule 40 galvanized pipe, 9 ga fabric",
+      "grade": "Security (barbed wire)",
+      "description": "Heavy framework with top and bottom rails and three strands of barbed wire on 45 degree arms.",
+      "heights": [
+        72,
+        84,
+        96,
+        120,
+        144
+      ],
+      "colors": [
+        "galvanized",
+        "black",
+        "green",
+        "brown"
+      ],
+      "styles": [
+        "cl_barbed",
+        "cl_3rail"
+      ],
+      "post_rules": [
+        [
+          999,
+          2.875
+        ]
+      ],
+      "spec": {
+        "Fabric": "9 ga, 2\" mesh",
+        "Line posts": "2-7/8\" OD Sch 40",
+        "Terminal posts": "4\" OD Sch 40",
+        "Gate posts": "6-5/8\" OD",
+        "Note": "post sizes are a typical security specification"
+      },
+      "sources": [
+        "https://www.wheatland.com/wp-content/uploads/2017/12/F1083-Schedule-40-Specifications.pdf"
+      ],
+      "defaults": {
+        "infill": "chain_link",
+        "post_shape": "round",
+        "post_spacing": 120,
+        "terminal_post_size": 4.0,
+        "gate_post_size": 6.625,
+        "rail_od": 1.66,
+        "color": "galvanized",
+        "infill_color": "galvanized",
+        "max_rack": 999,
+        "post_cap": "dome",
+        "post_above": 0,
+        "gate_frame": 1.9,
+        "gate_single_max": 72,
+        "embed_depth": 42,
+        "footing_dia": 12,
+        "height": 84,
+        "bottom_rail": true
+      }
+    },
+    {
+      "id": "tennis_court",
+      "name": "Tennis Court Fence",
+      "brand": "Master Halco / Merchants Metals",
+      "kind": "sports",
+      "material": "Galvanized or black vinyl-coated steel, 1-3/4\" mesh",
+      "grade": "Sports court (10'-12') - ASTM F969 practice",
+      "description": "1-3/4\" mesh so balls can't wedge in. 3\" terminals and 2-1/2\" line posts on 10' max spacing; top, middle and bottom rails; optional windscreen.",
+      "heights": [
+        96,
+        120,
+        144
+      ],
+      "colors": [
+        "black",
+        "galvanized",
+        "green"
+      ],
+      "styles": [
+        "tc_3rail",
+        "tc_windscreen",
+        "cl_ballstop"
+      ],
+      "post_rules": [
+        [
+          999,
+          2.5
+        ]
+      ],
+      "spec": {
+        "Fabric": "9 ga, 1-3/4\" mesh (ball-proof)",
+        "Terminal posts": "3\" OD (corner, end, gate)",
+        "Line posts": "2-1/2\" OD",
+        "Rails": "1-5/8\" OD top, middle, bottom",
+        "Post spacing": "10' max; 6' or bigger posts in high wind / with windscreen"
+      },
+      "sources": [
+        "https://www.hooverfence.com/tennis-court-fence-installation",
+        "https://store.astm.org/f0969-11.html",
+        "https://en.wikipedia.org/wiki/Chain-link_fencing"
+      ],
+      "defaults": {
+        "infill": "chain_link",
+        "post_shape": "round",
+        "post_spacing": 120,
+        "terminal_post_size": 3.0,
+        "gate_post_size": 3.0,
+        "rail_od": 1.66,
+        "color": "black",
+        "infill_color": "black",
+        "max_rack": 999,
+        "post_cap": "dome",
+        "post_above": 0,
+        "gate_frame": 1.66,
+        "gate_single_max": 48,
+        "embed_depth": 42,
+        "footing_dia": 12,
+        "height": 120,
+        "mid_rail": true,
+        "bottom_rail": true,
+        "windscreen_h": 108,
+        "windscreen_color": "green"
+      }
+    },
+    {
+      "id": "basketball_court",
+      "name": "Basketball Court Fence",
+      "brand": "Master Halco / Merchants Metals",
+      "kind": "sports",
+      "material": "Galvanized or color-coated steel, 1-3/4\" mesh",
+      "grade": "Sports court (8'-12') - municipal court spec",
+      "description": "Court enclosure with 1-3/4\" 9 ga mesh, 3-1/2\" terminals, 2-1/2\" line posts and 1-5/8\" top/mid/bottom rails.",
+      "heights": [
+        96,
+        120,
+        144
+      ],
+      "colors": [
+        "black",
+        "galvanized",
+        "green"
+      ],
+      "styles": [
+        "tc_3rail",
+        "tc_windscreen",
+        "cl_ballstop"
+      ],
+      "post_rules": [
+        [
+          999,
+          2.5
+        ]
+      ],
+      "spec": {
+        "Fabric": "9 ga, 1-3/4\" mesh (6 ga at hockey goal areas)",
+        "Terminal posts": "89 mm (3-1/2\") OD",
+        "Line posts": "63 mm (2-1/2\") OD",
+        "Rails": "43 mm (1-5/8\") OD top, middle, bottom"
+      },
+      "sources": [
+        "https://legacy.winnipeg.ca/ppd/Documents/CityPlanning/Parks/StandardConstructionDetails/300SportFacilities/SCD-304-R1-Tennis-and-Basketball-Fencing.pdf"
+      ],
+      "defaults": {
+        "infill": "chain_link",
+        "post_shape": "round",
+        "post_spacing": 120,
+        "terminal_post_size": 3.5,
+        "gate_post_size": 3.5,
+        "rail_od": 1.66,
+        "color": "black",
+        "infill_color": "black",
+        "max_rack": 999,
+        "post_cap": "dome",
+        "post_above": 0,
+        "gate_frame": 1.66,
+        "gate_single_max": 48,
+        "embed_depth": 48,
+        "footing_dia": 12,
+        "height": 120,
+        "mid_rail": true,
+        "bottom_rail": true,
+        "windscreen_h": 96,
+        "windscreen_color": "green"
+      }
+    },
+    {
+      "id": "ball_stop_netting",
+      "name": "Ball Stop / Overkick Netting",
+      "brand": "Engineered netting system",
+      "kind": "sports",
+      "material": "Galvanized steel poles, HDPE or polypropylene netting on steel cable",
+      "grade": "Soccer, baseball, golf (12'-40')",
+      "description": "Freestanding netting on cables between poles, for behind goals and over fences. Pole sizes and spacing are nominal: have poles and footings engineered for wind load.",
+      "heights": [
+        144,
+        240,
+        300,
+        360,
+        480
+      ],
+      "colors": [
+        "galvanized",
+        "black",
+        "green"
+      ],
+      "styles": [
+        "net_poles",
+        "net_poles_mid"
+      ],
+      "post_rules": [
+        [
+          144,
+          2.875
+        ],
+        [
+          240,
+          4.5
+        ],
+        [
+          360,
+          6.625
+        ],
+        [
+          999,
+          8.625
+        ]
+      ],
+      "spec": {
+        "Mesh": "28 mm (golf) to 100-125 mm (soccer/football)",
+        "Netting": "e.g. 3 mm knotless polypropylene, 100 mm mesh",
+        "Pole spacing": "about 8 m (26') in a published 6 m system; nominal 20'-25'",
+        "Poles / footings": "nominal; engineer for wind"
+      },
+      "sources": [
+        "https://www.specifiedby.com/cld-fencing-systems/ballstop-netting/cld--fencing-systems_BALLSTOP-NETTING_Specifications_Ball-Stop-Netting-datasheet.pdf",
+        "https://www.copeland.gov.uk/sites/default/files/planning-applications/additional_information_recd_13_may_2025.pdf"
+      ],
+      "defaults": {
+        "infill": "netting",
+        "post_shape": "round",
+        "post_spacing": 240,
+        "terminal_post_size": 0,
+        "gate_post_size": 4.5,
+        "color": "galvanized",
+        "infill_color": "black",
+        "max_rack": 999,
+        "clearance": 0,
+        "post_cap": "dome",
+        "post_above": 0,
+        "gate_frame": 1.9,
+        "gate_single_max": 72,
+        "embed_depth": 72,
+        "footing_dia": 24,
+        "height": 240,
+        "net_cables": 2,
+        "corner_angle": 10
+      }
+    },
+    {
+      "id": "oe_cedar_privacy",
+      "name": "Cedar Privacy (5/8 x 5-1/2 pickets)",
+      "brand": "Outdoor Essentials (UFP)",
+      "kind": "wood",
+      "material": "Western red cedar or pressure-treated pine pickets",
+      "grade": "4x4 posts, 2x4 rails, 5/8\" x 5-1/2\" x 6' pickets",
+      "description": "Built from stock 5/8\" x 5-1/2\" dog-ear pickets (Outdoor Essentials, YellaWood and others) on back-mounted 2x4 rails.",
+      "heights": [
+        48,
+        60,
+        72,
+        84,
+        96
+      ],
+      "colors": [
+        "cedar",
+        "pressure_treated",
+        "redwood",
+        "weathered_gray",
+        "pine",
+        "white"
+      ],
+      "styles": [
+        "stockade_dogear",
+        "flat_privacy",
+        "shadowbox",
+        "board_on_board",
+        "cap_trim",
+        "lattice_top"
+      ],
+      "post_rules": [
+        [
+          999,
+          3.5
+        ]
+      ],
+      "spec": {
+        "Pickets": "5/8\" x 5-1/2\" x 6' dog-ear (cedar or PT pine)",
+        "Rails": "2x4 (1-1/2\" x 3-1/2\")",
+        "Posts": "4x4 (3-1/2\" sq)"
+      },
+      "sources": [
+        "https://homedepot.com/p/Outdoor-Essentials-5-8-in-x-5-1-2-in-x-6-ft-Pressure-Treated-Pine-Dog-Ear-Fence-Picket-102560/202319053"
+      ],
+      "defaults": {
+        "post_spacing": 96,
+        "picket_w": 5.5,
+        "picket_d": 0.625,
+        "air_space": 0,
+        "rail_mount": "back",
+        "rail_w": 1.5,
+        "rail_h": 3.5,
+        "top": "extended",
+        "top_ext": 8,
+        "bottom": "extended",
+        "bottom_ext": 6,
+        "finial": "dogear",
+        "post_cap": "flat",
+        "post_above": 0,
+        "gate_post_size": 5.5,
+        "max_rack": 999,
+        "color": "cedar",
+        "gate_frame": 3.5,
+        "gate_brace": true,
+        "gate_single_max": 60,
+        "embed_depth": 30,
+        "footing_dia": 10,
+        "height": 72
+      }
+    },
+    {
+      "id": "wood_picket",
+      "name": "Wood Picket",
+      "brand": "Stock lumber",
+      "kind": "wood",
+      "material": "Cedar, pine or painted wood",
+      "grade": "4x4 posts, 2x4 rails, 1x4 pickets",
       "description": "Classic spaced picket fence with dog-ear, gothic, flat, scalloped or arched tops.",
-      "heights": [36, 42, 48],
-      "colors": ["white", "cedar", "pressure_treated", "pine", "weathered_gray"],
-      "styles": ["picket_dogear", "picket_gothic", "picket_flat", "picket_scallop", "picket_arched"],
-      "post_rules": [[999, 3.5]],
-      "defaults": { "post_spacing": 96, "picket_w": 3.5, "picket_d": 0.75, "air_space": 2.5,
-                    "rail_mount": "back", "rail_w": 1.5, "rail_h": 3.5, "rails": 2,
-                    "top": "extended", "top_ext": 5, "bottom": "extended", "bottom_ext": 4,
-                    "finial": "dogear", "post_cap": "pyramid", "post_above": 2,
-                    "gate_post_size": 3.5, "max_rack": 999, "color": "white", "gate_frame": 3.5,
-                    "gate_brace": true, "gate_single_max": 48, "embed_depth": 24, "footing_dia": 10,
-                    "height": 42 }
+      "heights": [
+        36,
+        42,
+        48
+      ],
+      "colors": [
+        "white",
+        "cedar",
+        "pressure_treated",
+        "pine",
+        "weathered_gray"
+      ],
+      "styles": [
+        "picket_dogear",
+        "picket_gothic",
+        "picket_flat",
+        "picket_scallop",
+        "picket_arched"
+      ],
+      "post_rules": [
+        [
+          999,
+          3.5
+        ]
+      ],
+      "defaults": {
+        "post_spacing": 96,
+        "picket_w": 3.5,
+        "picket_d": 0.75,
+        "air_space": 2.5,
+        "rail_mount": "back",
+        "rail_w": 1.5,
+        "rail_h": 3.5,
+        "rails": 2,
+        "top": "extended",
+        "top_ext": 5,
+        "bottom": "extended",
+        "bottom_ext": 4,
+        "finial": "dogear",
+        "post_cap": "pyramid",
+        "post_above": 2,
+        "gate_post_size": 3.5,
+        "max_rack": 999,
+        "color": "white",
+        "gate_frame": 3.5,
+        "gate_brace": true,
+        "gate_single_max": 48,
+        "embed_depth": 24,
+        "footing_dia": 10,
+        "height": 42
+      }
     },
     {
-      "id": "wood_split_rail", "name": "Split Rail", "brand": "Generic", "kind": "wood",
-      "material": "Cedar or locust", "grade": "Mortised posts, 10' rails",
+      "id": "wood_split_rail",
+      "name": "Split Rail",
+      "brand": "Stock lumber",
+      "kind": "wood",
+      "material": "Cedar or locust",
+      "grade": "Mortised posts, 10' rails",
       "description": "Rustic split rail with rails mortised through the posts.",
-      "heights": [36, 42, 48, 54],
-      "colors": ["cedar", "weathered_gray", "pressure_treated"],
-      "styles": ["split_2rail", "split_3rail"],
-      "post_rules": [[999, 5.5]],
-      "defaults": { "infill": "horizontal", "h_mount": "through", "board_h": 4.5, "board_t": 3.0,
-                    "post_spacing": 120, "clearance": 2, "bottom_ext": 10, "post_cap": "none",
-                    "post_above": 6, "gate_post_size": 5.5, "max_rack": 999, "color": "cedar",
-                    "gate_frame": 3.5, "gate_brace": true, "gate_single_max": 60, "embed_depth": 24,
-                    "footing_dia": 10, "height": 42, "rail_w": 3.0, "rail_h": 4.5 }
+      "heights": [
+        36,
+        42,
+        48,
+        54
+      ],
+      "colors": [
+        "cedar",
+        "weathered_gray",
+        "pressure_treated"
+      ],
+      "styles": [
+        "split_2rail",
+        "split_3rail"
+      ],
+      "post_rules": [
+        [
+          999,
+          5.5
+        ]
+      ],
+      "defaults": {
+        "infill": "horizontal",
+        "h_mount": "through",
+        "board_h": 4.5,
+        "board_t": 3.0,
+        "post_spacing": 120,
+        "clearance": 2,
+        "bottom_ext": 10,
+        "post_cap": "none",
+        "post_above": 6,
+        "gate_post_size": 5.5,
+        "max_rack": 999,
+        "color": "cedar",
+        "gate_frame": 3.5,
+        "gate_brace": true,
+        "gate_single_max": 60,
+        "embed_depth": 24,
+        "footing_dia": 10,
+        "height": 42,
+        "rail_w": 3.0,
+        "rail_h": 4.5
+      }
     },
     {
-      "id": "wood_horizontal", "name": "Horizontal Wood", "brand": "Generic", "kind": "wood",
-      "material": "Cedar or hardwood", "grade": "4x4 posts, 1x6 horizontal boards",
+      "id": "wood_horizontal",
+      "name": "Horizontal Wood",
+      "brand": "Stock lumber",
+      "kind": "wood",
+      "material": "Cedar or hardwood",
+      "grade": "4x4 posts, 1x6 horizontal boards",
       "description": "Modern horizontal slat fence with boards face-mounted across the posts.",
-      "heights": [36, 48, 60, 72, 84],
-      "colors": ["cedar", "redwood", "weathered_gray", "black", "pine"],
-      "styles": ["horiz_modern", "horiz_tight", "horiz_cap"],
-      "post_rules": [[999, 3.5]],
-      "defaults": { "infill": "horizontal", "h_mount": "face", "board_h": 5.5, "board_t": 0.75,
-                    "board_gap": 0.5, "post_spacing": 72, "post_cap": "none", "post_above": 0,
-                    "gate_post_size": 5.5, "max_rack": 999, "color": "cedar", "gate_frame": 3.5,
-                    "gate_brace": true, "gate_single_max": 48, "embed_depth": 30, "footing_dia": 10,
-                    "rail_w": 1.5, "rail_h": 3.5 }
+      "heights": [
+        36,
+        48,
+        60,
+        72,
+        84
+      ],
+      "colors": [
+        "cedar",
+        "redwood",
+        "weathered_gray",
+        "black",
+        "pine"
+      ],
+      "styles": [
+        "horiz_modern",
+        "horiz_tight",
+        "horiz_cap"
+      ],
+      "post_rules": [
+        [
+          999,
+          3.5
+        ]
+      ],
+      "defaults": {
+        "infill": "horizontal",
+        "h_mount": "face",
+        "board_h": 5.5,
+        "board_t": 0.75,
+        "board_gap": 0.5,
+        "post_spacing": 72,
+        "post_cap": "none",
+        "post_above": 0,
+        "gate_post_size": 5.5,
+        "max_rack": 999,
+        "color": "cedar",
+        "gate_frame": 3.5,
+        "gate_brace": true,
+        "gate_single_max": 48,
+        "embed_depth": 30,
+        "footing_dia": 10,
+        "rail_w": 1.5,
+        "rail_h": 3.5
+      }
     },
     {
-      "id": "vinyl_privacy", "name": "Vinyl Privacy", "brand": "Generic", "kind": "vinyl",
-      "material": "PVC vinyl", "grade": "5x5 posts, tongue-and-groove boards",
-      "description": "Vinyl privacy panels with routed posts. Solid, lattice-top and semi-privacy styles.",
-      "heights": [48, 60, 72, 96],
-      "colors": ["white", "tan", "clay", "gray", "black"],
-      "styles": ["vinyl_solid", "vinyl_lattice", "vinyl_semi"],
-      "post_rules": [[999, 5.0]],
-      "defaults": { "post_spacing": 96, "picket_w": 6.0, "picket_d": 0.875, "air_space": 0,
-                    "rails": 2, "rail_w": 2.0, "rail_h": 3.5, "post_cap": "new_england",
-                    "post_above": 2, "gate_post_size": 5.0, "max_rack": 6, "color": "white",
-                    "gate_frame": 2.0, "gate_single_max": 60, "embed_depth": 30, "footing_dia": 10,
-                    "finial": "flat" }
+      "id": "bufftech_galveston",
+      "name": "Galveston",
+      "brand": "CertainTeed Bufftech",
+      "kind": "vinyl",
+      "material": "PVC vinyl, steel-reinforced rails",
+      "grade": "Tall privacy (7'-8')",
+      "description": "7/8\" x 7\" tongue-and-groove boards in 2\" x 6\" rails with steel channels; 5\" posts, 8' sections.",
+      "heights": [
+        84,
+        96
+      ],
+      "colors": [
+        "white",
+        "almond",
+        "clay"
+      ],
+      "styles": [
+        "vinyl_solid",
+        "vinyl_lattice"
+      ],
+      "post_rules": [
+        [
+          999,
+          5.0
+        ]
+      ],
+      "spec": {
+        "Boards": "7/8\" x 7\" T&G (.060\" wall)",
+        "Rails": "2\" x 6\" top/mid/bottom with steel channels (.090\" wall)",
+        "Posts": "5\" x 5\" (.170\" wall), 132\" for 8' fence",
+        "Sections": "8' (posts 8' O.C.)"
+      },
+      "sources": [
+        "https://hooverfence.com/bufftech-galveston-fence-sections",
+        "https://hooverfence.com/bufftech-galveston-fence-sections-lattice-accent"
+      ],
+      "defaults": {
+        "post_spacing": 96,
+        "picket_w": 7.0,
+        "picket_d": 0.875,
+        "air_space": 0,
+        "rails": 3,
+        "rail_w": 2.0,
+        "rail_h": 6.0,
+        "post_cap": "new_england",
+        "post_above": 2,
+        "gate_post_size": 5.0,
+        "max_rack": 6,
+        "color": "white",
+        "gate_frame": 2.0,
+        "gate_single_max": 60,
+        "embed_depth": 36,
+        "footing_dia": 12,
+        "height": 96,
+        "finial": "flat"
+      }
     },
     {
-      "id": "vinyl_picket", "name": "Vinyl Picket", "brand": "Generic", "kind": "vinyl",
-      "material": "PVC vinyl", "grade": "4x4 posts, 7/8 x 3 pickets",
-      "description": "Vinyl picket fence with point, gothic, flat or scalloped pickets.",
-      "heights": [36, 42, 48],
-      "colors": ["white", "tan", "clay", "gray"],
-      "styles": ["vinyl_point", "vinyl_flat", "vinyl_scallop", "vinyl_gothic"],
-      "post_rules": [[999, 4.0]],
-      "defaults": { "post_spacing": 96, "picket_w": 3.0, "picket_d": 0.875, "air_space": 3.0,
-                    "rails": 2, "rail_w": 1.5, "rail_h": 3.5, "top": "extended", "top_ext": 5,
-                    "bottom": "extended", "bottom_ext": 3, "post_cap": "new_england",
-                    "post_above": 3, "gate_post_size": 4.0, "max_rack": 6, "color": "white",
-                    "gate_frame": 2.0, "gate_single_max": 48, "embed_depth": 24, "footing_dia": 10,
-                    "height": 42 }
+      "id": "bufftech_chesterfield",
+      "name": "Chesterfield",
+      "brand": "CertainTeed Bufftech",
+      "kind": "vinyl",
+      "material": "PVC vinyl",
+      "grade": "Privacy (4'-6')",
+      "description": "7\" tongue-and-groove boards on 8' sections, with lattice and Victorian accent options.",
+      "heights": [
+        48,
+        60,
+        72
+      ],
+      "colors": [
+        "white",
+        "almond",
+        "clay"
+      ],
+      "styles": [
+        "vinyl_solid",
+        "vinyl_lattice",
+        "bt_victorian"
+      ],
+      "post_rules": [
+        [
+          999,
+          5.0
+        ]
+      ],
+      "spec": {
+        "Boards": "7/8\" x 7\" T&G",
+        "Rails": "2\" x 6\" deco rails (Westminster); bottom rail steel-reinforced",
+        "Posts": "5\" x 5\"",
+        "Sections": "8'"
+      },
+      "sources": [
+        "https://hooverfence.com/bufftech-chesterfield-fence-sections",
+        "https://hooverfence.com/bufftech-chesterfield-fence-sections-westminister-accent"
+      ],
+      "defaults": {
+        "post_spacing": 96,
+        "picket_w": 7.0,
+        "picket_d": 0.875,
+        "air_space": 0,
+        "rails": 2,
+        "rail_w": 2.0,
+        "rail_h": 6.0,
+        "post_cap": "new_england",
+        "post_above": 2,
+        "gate_post_size": 5.0,
+        "max_rack": 6,
+        "color": "white",
+        "gate_frame": 2.0,
+        "gate_single_max": 60,
+        "embed_depth": 30,
+        "footing_dia": 10,
+        "height": 72,
+        "finial": "flat"
+      }
     },
     {
-      "id": "vinyl_ranch", "name": "Vinyl Ranch Rail", "brand": "Generic", "kind": "vinyl",
-      "material": "PVC vinyl", "grade": "5x5 posts, 1.5 x 5.5 rails",
-      "description": "Post-and-rail horse or ranch fence with 2, 3 or 4 rails routed into the posts.",
-      "heights": [36, 48, 54, 60],
-      "colors": ["white", "tan", "black"],
-      "styles": ["ranch_2", "ranch_3", "ranch_4"],
-      "post_rules": [[999, 5.0]],
-      "defaults": { "infill": "horizontal", "h_mount": "between", "board_h": 5.5, "board_t": 1.5,
-                    "post_spacing": 96, "clearance": 2, "bottom_ext": 10, "post_cap": "new_england",
-                    "post_above": 2, "gate_post_size": 5.0, "max_rack": 999, "color": "white",
-                    "gate_frame": 2.0, "gate_single_max": 60, "embed_depth": 30, "footing_dia": 10,
-                    "height": 54, "rail_w": 1.5, "rail_h": 5.5 }
+      "id": "bufftech_baron",
+      "name": "Baron",
+      "brand": "CertainTeed Bufftech",
+      "kind": "vinyl",
+      "material": "PVC vinyl",
+      "grade": "Picket (4'-6')",
+      "description": "7/8\" x 3\" pickets on 1-3/4\" x 3-1/2\" rails, 8' sections. 4\" posts at 4', 5\" posts at 5'-6'.",
+      "heights": [
+        48,
+        60,
+        72
+      ],
+      "colors": [
+        "white",
+        "almond",
+        "clay"
+      ],
+      "styles": [
+        "bt_baron"
+      ],
+      "post_rules": [
+        [
+          48,
+          4.0
+        ],
+        [
+          999,
+          5.0
+        ]
+      ],
+      "spec": {
+        "Pickets": "7/8\" x 3\"",
+        "Rails": "1-3/4\" x 3-1/2\"",
+        "Posts": "4\" sq (4'), 5\" sq (5'-6')",
+        "Picket spacing": "nominal"
+      },
+      "sources": [
+        "https://hooverfence.com/bufftech-baron-fence-sections"
+      ],
+      "defaults": {
+        "post_spacing": 96,
+        "picket_w": 3.0,
+        "picket_d": 0.875,
+        "air_space": 3.0,
+        "rails": 2,
+        "rail_w": 1.75,
+        "rail_h": 3.5,
+        "top": "extended",
+        "top_ext": 4,
+        "bottom": "extended",
+        "bottom_ext": 3,
+        "post_cap": "new_england",
+        "post_above": 3,
+        "gate_post_size": 5.0,
+        "max_rack": 6,
+        "color": "white",
+        "gate_frame": 2.0,
+        "gate_single_max": 48,
+        "embed_depth": 30,
+        "footing_dia": 10,
+        "height": 48
+      }
+    },
+    {
+      "id": "bufftech_cape_cod",
+      "name": "Cape Cod",
+      "brand": "CertainTeed Bufftech",
+      "kind": "vinyl",
+      "material": "PVC vinyl",
+      "grade": "Picket (3'-4')",
+      "description": "7/8\" x 3\" pointed pickets at 2-7/16\" spacing on 6' sections with 4\" posts. White.",
+      "heights": [
+        36,
+        48
+      ],
+      "colors": [
+        "white"
+      ],
+      "styles": [
+        "bt_cape_cod",
+        "bt_cape_cod_concave"
+      ],
+      "post_rules": [
+        [
+          999,
+          4.0
+        ]
+      ],
+      "spec": {
+        "Pickets": "7/8\" x 3\", pointed caps",
+        "Picket spacing": "2-7/16\"",
+        "Posts": "4\" sq",
+        "Sections": "6'",
+        "Concave": "7\" difference longest to shortest"
+      },
+      "sources": [
+        "https://www.hooverfence.com/bufftech-cape-cod-fence-sections",
+        "https://www.hooverfence.com/bufftech-cape-cod-fence-sections-concave-top"
+      ],
+      "defaults": {
+        "post_spacing": 72,
+        "picket_w": 3.0,
+        "picket_d": 0.875,
+        "air_space": 2.4375,
+        "rails": 2,
+        "rail_w": 1.5,
+        "rail_h": 3.5,
+        "top": "extended",
+        "top_ext": 5,
+        "bottom": "extended",
+        "bottom_ext": 3,
+        "post_cap": "new_england",
+        "post_above": 3,
+        "gate_post_size": 4.0,
+        "max_rack": 6,
+        "color": "white",
+        "gate_frame": 2.0,
+        "gate_single_max": 48,
+        "embed_depth": 24,
+        "footing_dia": 10,
+        "height": 48
+      }
+    },
+    {
+      "id": "bufftech_post_rail",
+      "name": "Post & Rail",
+      "brand": "CertainTeed Bufftech",
+      "kind": "vinyl",
+      "material": "PVC vinyl",
+      "grade": "Ranch / horse rail",
+      "description": "1-1/2\" x 5-1/2\" ribbed rails in routed 5\" x 5\" posts with lock rings. 2, 3 or 4 rails.",
+      "heights": [
+        36,
+        52,
+        60
+      ],
+      "colors": [
+        "white",
+        "almond",
+        "clay"
+      ],
+      "styles": [
+        "ranch_2",
+        "ranch_3",
+        "ranch_4"
+      ],
+      "post_rules": [
+        [
+          999,
+          5.0
+        ]
+      ],
+      "spec": {
+        "Rails": "1-1/2\" x 5-1/2\" ribbed",
+        "Posts": "5\" x 5\" routed, 68\"/84\"/96\" long by rail count",
+        "Heights": "3', 4'4\", 5' (listings vary)"
+      },
+      "sources": [
+        "https://www.hooverfence.com/bufftech-small-vinyl-ribbed-rails"
+      ],
+      "defaults": {
+        "infill": "horizontal",
+        "h_mount": "between",
+        "board_h": 5.5,
+        "board_t": 1.5,
+        "post_spacing": 96,
+        "clearance": 2,
+        "bottom_ext": 10,
+        "post_cap": "new_england",
+        "post_above": 2,
+        "gate_post_size": 5.0,
+        "max_rack": 999,
+        "color": "white",
+        "gate_frame": 2.0,
+        "gate_single_max": 60,
+        "embed_depth": 30,
+        "footing_dia": 10,
+        "height": 52,
+        "rail_w": 1.5,
+        "rail_h": 5.5
+      }
+    },
+    {
+      "id": "illusions_privacy",
+      "name": "Privacy (Classic Series)",
+      "brand": "Illusions Vinyl Fence",
+      "kind": "vinyl",
+      "material": "PVC vinyl (Color Spectrum and WoodBond woodgrain available)",
+      "grade": "Privacy / semi-privacy",
+      "description": "6\" V-groove tongue-and-groove boards, metal-reinforced bottom rail, 5\" x 5\" posts on 6' x 8' sections.",
+      "heights": [
+        48,
+        60,
+        72,
+        96
+      ],
+      "colors": [
+        "white",
+        "beige",
+        "gray",
+        "almond",
+        "woodland_brown"
+      ],
+      "styles": [
+        "vinyl_solid",
+        "illusions_diag",
+        "illusions_semi"
+      ],
+      "post_rules": [
+        [
+          72,
+          5.0
+        ],
+        [
+          999,
+          8.0
+        ]
+      ],
+      "spec": {
+        "Boards": "6\" V-groove T&G (semi-privacy: 3\" alternating)",
+        "Posts": "4\" or 5\" sq up to 6'; 8\" sq up to 10'",
+        "Rails": "nominal; bottom rail metal-reinforced"
+      },
+      "sources": [
+        "https://www.ringsend.com/media/product-files/file/Illusions-Vinyl-Fence-Installation-Instructions.pdf",
+        "https://cdn.branchcms.com/Q1D9bmXd0l-888/docs/MH_IllusionsProduct-Website.pdf"
+      ],
+      "defaults": {
+        "post_spacing": 96,
+        "picket_w": 6.0,
+        "picket_d": 0.875,
+        "air_space": 0,
+        "rails": 2,
+        "rail_w": 2.0,
+        "rail_h": 5.5,
+        "post_cap": "new_england",
+        "post_above": 2,
+        "gate_post_size": 5.0,
+        "max_rack": 6,
+        "color": "white",
+        "gate_frame": 2.0,
+        "gate_single_max": 60,
+        "embed_depth": 30,
+        "footing_dia": 10,
+        "height": 72,
+        "finial": "flat"
+      }
+    },
+    {
+      "id": "trex_seclusions",
+      "name": "Seclusions",
+      "brand": "Trex Fencing",
+      "kind": "composite",
+      "material": "Wood-plastic composite pickets, aluminum bottom rail",
+      "grade": "Privacy (4'-8', up to 12' with mid-rails)",
+      "description": "Interlocking board-on-board composite: 19 pickets per 8' section, 96\" on center (91\" between posts).",
+      "heights": [
+        48,
+        60,
+        72,
+        96
+      ],
+      "colors": [
+        "woodland_brown",
+        "saddle",
+        "winchester_grey"
+      ],
+      "styles": [
+        "trex_bob"
+      ],
+      "post_rules": [
+        [
+          999,
+          5.0
+        ]
+      ],
+      "spec": {
+        "Section": "96\" O.C. (91\" between posts)",
+        "Pickets": "67\" (6') / 91\" (8') nominal, 19 per 8' kit",
+        "Posts": "8', 9', 12' lengths (cross-section nominal 5\")",
+        "Footings": "12\" dia x 30\" deep typical"
+      },
+      "sources": [
+        "https://trex-fencing-fds.helpscoutdocs.com/article/204-how-wide-is-a-section-of-trex-fence",
+        "https://trex-fencing-fds.helpscoutdocs.com/article/403-what-are-the-dimensions-of-a-trex-picket",
+        "https://www.arcat.com/specification/trex-fencing-50087/32_31_32trx"
+      ],
+      "defaults": {
+        "post_spacing": 96,
+        "picket_w": 5.5,
+        "picket_d": 0.75,
+        "air_space": 3.6,
+        "rails": 2,
+        "rail_w": 3.0,
+        "rail_h": 3.0,
+        "post_cap": "flat",
+        "post_above": 3,
+        "gate_post_size": 5.0,
+        "max_rack": 6,
+        "color": "woodland_brown",
+        "gate_frame": 3.0,
+        "gate_brace": true,
+        "gate_single_max": 72,
+        "embed_depth": 30,
+        "footing_dia": 12,
+        "height": 72
+      }
+    },
+    {
+      "id": "trex_horizons",
+      "name": "Horizons",
+      "brand": "Trex Fencing",
+      "kind": "composite",
+      "material": "Wood-plastic composite",
+      "grade": "Horizontal privacy",
+      "description": "Horizontal composite pickets, 97\" on center (92\" between posts).",
+      "heights": [
+        48,
+        60,
+        72
+      ],
+      "colors": [
+        "woodland_brown",
+        "saddle",
+        "winchester_grey"
+      ],
+      "styles": [
+        "trex_horizons"
+      ],
+      "post_rules": [
+        [
+          999,
+          5.0
+        ]
+      ],
+      "spec": {
+        "Section": "97\" O.C. (92\" between posts)",
+        "Pickets": "67\" / 91\" nominal, cut to height"
+      },
+      "sources": [
+        "https://trex-fencing-fds.helpscoutdocs.com/article/294-how-far-apart-should-i-space-my-trex-posts"
+      ],
+      "defaults": {
+        "infill": "horizontal",
+        "h_mount": "between",
+        "board_h": 5.5,
+        "board_t": 0.75,
+        "board_gap": 0.25,
+        "post_spacing": 97,
+        "post_cap": "flat",
+        "post_above": 2,
+        "gate_post_size": 5.0,
+        "max_rack": 999,
+        "color": "woodland_brown",
+        "gate_frame": 3.0,
+        "gate_brace": true,
+        "gate_single_max": 60,
+        "embed_depth": 30,
+        "footing_dia": 12,
+        "height": 72,
+        "rail_w": 1.5,
+        "rail_h": 3.5
+      }
     }
   ],
-
   "styles": {
-    "majestic":   { "name": "Majestic",   "description": "Flush top and bottom. Pickets stop at the top rail.",
-                    "defaults": { "top": "flush", "bottom": "flush", "finial": "flat", "rails": 3 } },
-    "genesis":    { "name": "Genesis",    "description": "Pickets extend above the top rail with flat caps. Flush bottom.",
-                    "defaults": { "top": "extended", "top_ext": 3.5, "bottom": "flush", "finial": "flat", "rails": 3 } },
-    "classic":    { "name": "Classic",    "description": "Pickets extend above the top rail and below the bottom rail.",
-                    "defaults": { "top": "extended", "top_ext": 4, "bottom": "extended", "bottom_ext": 4, "finial": "flat", "rails": 3 } },
-    "invincible": { "name": "Invincible", "description": "Spear-top pickets extend above the top rail. Flush bottom.",
-                    "defaults": { "top": "extended", "top_ext": 4, "bottom": "flush", "finial": "spear", "rails": 3 } },
-    "warrior":    { "name": "Warrior",    "description": "Spear tops above the top rail with extended picket bottoms.",
-                    "defaults": { "top": "extended", "top_ext": 4, "bottom": "extended", "bottom_ext": 4, "finial": "spear", "rails": 3 } },
-    "trident":    { "name": "Trident",    "description": "Security pickets with a triple-pointed top.",
-                    "defaults": { "top": "extended", "top_ext": 6, "bottom": "flush", "finial": "trident", "rails": 3 } },
-
-    "cl_standard":   { "name": "Top Rail",           "description": "Top rail with a bottom tension wire.",
-                       "defaults": { "mid_rail": false, "bottom_rail": false, "slats": false, "barbed": 0 } },
-    "cl_top_bottom": { "name": "Top & Bottom Rail",  "description": "Top and bottom rails for a stiffer fence.",
-                       "defaults": { "mid_rail": false, "bottom_rail": true, "slats": false, "barbed": 0 } },
-    "cl_3rail":      { "name": "3-Rail",             "description": "Top, middle and bottom rails (tall commercial).",
-                       "defaults": { "mid_rail": true, "bottom_rail": true, "slats": false, "barbed": 0 } },
-    "cl_slats":      { "name": "Privacy Slats",      "description": "Fabric with privacy slats woven in.",
-                       "defaults": { "slats": true, "infill_color": "green", "barbed": 0 } },
-    "cl_barbed":     { "name": "Barbed Wire",        "description": "Three strands of barbed wire on 45 degree arms.",
-                       "defaults": { "barbed": 3, "bottom_rail": true, "slats": false } },
-
-    "stockade_dogear": { "name": "Dog-Ear Privacy", "description": "Tight dog-ear boards on back rails.",
-                         "defaults": { "finial": "dogear", "layout": "single", "air_space": 0, "rails": 3 } },
-    "flat_privacy":    { "name": "Flat Top Privacy", "description": "Square-cut boards, tight spacing.",
-                         "defaults": { "finial": "flat", "layout": "single", "air_space": 0, "rails": 3 } },
-    "shadowbox":       { "name": "Shadowbox", "description": "Boards alternate front and back with gaps. Looks good from both sides.",
-                         "defaults": { "finial": "flat", "layout": "shadowbox", "air_space": 5.5, "rails": 3 } },
-    "board_on_board":  { "name": "Board-on-Board", "description": "Overlapping boards on both sides of the rails for full privacy.",
-                         "defaults": { "finial": "flat", "layout": "shadowbox", "air_space": 3.0, "rails": 3 } },
-    "cap_trim":        { "name": "Cap & Trim", "description": "Flat boards with a 2x6 cap and 1x4 trim.",
-                         "defaults": { "finial": "flat", "layout": "single", "air_space": 0, "top": "flush", "top_ext": 0, "cap": true, "trim": true, "rails": 3 } },
-    "lattice_top":     { "name": "Lattice Top", "description": "Privacy boards with a 12\" lattice topper.",
-                         "defaults": { "finial": "flat", "layout": "single", "air_space": 0, "top": "flush", "top_ext": 0, "lattice_h": 12, "rails": 3 } },
-
-    "picket_dogear":  { "name": "Dog-Ear Picket", "description": "Spaced dog-ear pickets.", "defaults": { "finial": "dogear" } },
-    "picket_gothic":  { "name": "Gothic Picket",  "description": "Pointed gothic pickets.", "defaults": { "finial": "gothic" } },
-    "picket_flat":    { "name": "Flat Picket",    "description": "Square-cut pickets.",     "defaults": { "finial": "flat" } },
-    "picket_scallop": { "name": "Scalloped",      "description": "Pickets dip in a concave curve between posts.",
-                        "defaults": { "finial": "gothic", "curve": "concave", "curve_h": 6 } },
-    "picket_arched":  { "name": "Arched",         "description": "Pickets rise in a convex arch between posts.",
-                        "defaults": { "finial": "dogear", "curve": "convex", "curve_h": 6 } },
-
-    "split_2rail": { "name": "2-Rail", "description": "Two split rails.",   "defaults": { "h_count": 2 } },
-    "split_3rail": { "name": "3-Rail", "description": "Three split rails.", "defaults": { "h_count": 3 } },
-
-    "horiz_modern": { "name": "Modern Gap",  "description": "1x6 boards with 1/2\" reveals.", "defaults": { "board_gap": 0.5, "cap": false } },
-    "horiz_tight":  { "name": "Tight Board", "description": "Nearly closed horizontal boards.", "defaults": { "board_gap": 0.125, "cap": false } },
-    "horiz_cap":    { "name": "Capped",      "description": "Horizontal boards with a flat cap board.", "defaults": { "board_gap": 0.5, "cap": true } },
-
-    "vinyl_solid":   { "name": "Solid Privacy", "description": "Solid tongue-and-groove panel.",
-                       "defaults": { "air_space": 0, "lattice_h": 0, "top": "flush", "finial": "flat" } },
-    "vinyl_lattice": { "name": "Lattice Top",   "description": "Solid panel with a 12\" lattice topper.",
-                       "defaults": { "air_space": 0, "lattice_h": 12, "top": "flush", "finial": "flat" } },
-    "vinyl_semi":    { "name": "Semi-Privacy",  "description": "Boards with small gaps between them.",
-                       "defaults": { "air_space": 1.5, "lattice_h": 0, "top": "flush", "finial": "flat" } },
-
-    "vinyl_point":   { "name": "Point Picket",   "description": "Pointed vinyl pickets.", "defaults": { "finial": "point" } },
-    "vinyl_flat":    { "name": "Flat Picket",    "description": "Flat-top vinyl pickets.", "defaults": { "finial": "flat" } },
-    "vinyl_scallop": { "name": "Scalloped",      "description": "Pointed pickets in a concave scallop.",
-                       "defaults": { "finial": "point", "curve": "concave", "curve_h": 6 } },
-    "vinyl_gothic":  { "name": "Gothic Picket",  "description": "Gothic vinyl pickets.", "defaults": { "finial": "gothic" } },
-
-    "ranch_2": { "name": "2-Rail", "description": "Two rails.",   "defaults": { "h_count": 2 } },
-    "ranch_3": { "name": "3-Rail", "description": "Three rails.", "defaults": { "h_count": 3 } },
-    "ranch_4": { "name": "4-Rail", "description": "Four rails.",  "defaults": { "h_count": 4 } }
+    "majestic": {
+      "name": "Majestic",
+      "description": "Flush top and bottom. Pickets stop at the top rail.",
+      "defaults": {
+        "top": "flush",
+        "bottom": "flush",
+        "finial": "flat",
+        "rails": 3
+      }
+    },
+    "genesis": {
+      "name": "Genesis",
+      "description": "Pickets extend above the top rail with flat caps. Flush bottom.",
+      "defaults": {
+        "top": "extended",
+        "top_ext": 3.5,
+        "bottom": "flush",
+        "finial": "flat",
+        "rails": 3
+      }
+    },
+    "classic": {
+      "name": "Classic",
+      "description": "Pickets extend above the top rail and below the bottom rail.",
+      "defaults": {
+        "top": "extended",
+        "top_ext": 4,
+        "bottom": "extended",
+        "bottom_ext": 4,
+        "finial": "flat",
+        "rails": 3
+      }
+    },
+    "invincible": {
+      "name": "Invincible",
+      "description": "Spear-top pickets extend above the top rail. Flush bottom.",
+      "defaults": {
+        "top": "extended",
+        "top_ext": 4,
+        "bottom": "flush",
+        "finial": "spear",
+        "rails": 3
+      }
+    },
+    "warrior": {
+      "name": "Warrior",
+      "description": "Spear tops above the top rail with extended picket bottoms.",
+      "defaults": {
+        "top": "extended",
+        "top_ext": 4,
+        "bottom": "extended",
+        "bottom_ext": 4,
+        "finial": "spear",
+        "rails": 3
+      }
+    },
+    "trident": {
+      "name": "Trident",
+      "description": "Security pickets with a triple-pointed top.",
+      "defaults": {
+        "top": "extended",
+        "top_ext": 6,
+        "bottom": "flush",
+        "finial": "trident",
+        "rails": 3
+      }
+    },
+    "cl_standard": {
+      "name": "Top Rail",
+      "description": "Top rail with a bottom tension wire.",
+      "defaults": {
+        "mid_rail": false,
+        "bottom_rail": false,
+        "slats": false,
+        "barbed": 0
+      }
+    },
+    "cl_top_bottom": {
+      "name": "Top & Bottom Rail",
+      "description": "Top and bottom rails for a stiffer fence.",
+      "defaults": {
+        "mid_rail": false,
+        "bottom_rail": true,
+        "slats": false,
+        "barbed": 0
+      }
+    },
+    "cl_3rail": {
+      "name": "3-Rail",
+      "description": "Top, middle and bottom rails (tall commercial).",
+      "defaults": {
+        "mid_rail": true,
+        "bottom_rail": true,
+        "slats": false,
+        "barbed": 0
+      }
+    },
+    "cl_slats": {
+      "name": "Privacy Slats",
+      "description": "Fabric with privacy slats woven in.",
+      "defaults": {
+        "slats": true,
+        "infill_color": "green",
+        "barbed": 0
+      }
+    },
+    "cl_barbed": {
+      "name": "Barbed Wire",
+      "description": "Three strands of barbed wire on 45 degree arms.",
+      "defaults": {
+        "barbed": 3,
+        "bottom_rail": true,
+        "slats": false
+      }
+    },
+    "stockade_dogear": {
+      "name": "Dog-Ear Privacy",
+      "description": "Tight dog-ear boards on back rails.",
+      "defaults": {
+        "finial": "dogear",
+        "layout": "single",
+        "air_space": 0,
+        "rails": 3
+      }
+    },
+    "flat_privacy": {
+      "name": "Flat Top Privacy",
+      "description": "Square-cut boards, tight spacing.",
+      "defaults": {
+        "finial": "flat",
+        "layout": "single",
+        "air_space": 0,
+        "rails": 3
+      }
+    },
+    "shadowbox": {
+      "name": "Shadowbox",
+      "description": "Boards alternate front and back with gaps. Looks good from both sides.",
+      "defaults": {
+        "finial": "flat",
+        "layout": "shadowbox",
+        "air_space": 5.5,
+        "rails": 3
+      }
+    },
+    "board_on_board": {
+      "name": "Board-on-Board",
+      "description": "Overlapping boards on both sides of the rails for full privacy.",
+      "defaults": {
+        "finial": "flat",
+        "layout": "shadowbox",
+        "air_space": 3.0,
+        "rails": 3
+      }
+    },
+    "cap_trim": {
+      "name": "Cap & Trim",
+      "description": "Flat boards with a 2x6 cap and 1x4 trim.",
+      "defaults": {
+        "finial": "flat",
+        "layout": "single",
+        "air_space": 0,
+        "top": "flush",
+        "top_ext": 0,
+        "cap": true,
+        "trim": true,
+        "rails": 3
+      }
+    },
+    "lattice_top": {
+      "name": "Lattice Top",
+      "description": "Privacy boards with a 12\" lattice topper.",
+      "defaults": {
+        "finial": "flat",
+        "layout": "single",
+        "air_space": 0,
+        "top": "flush",
+        "top_ext": 0,
+        "lattice_h": 12,
+        "rails": 3
+      }
+    },
+    "picket_dogear": {
+      "name": "Dog-Ear Picket",
+      "description": "Spaced dog-ear pickets.",
+      "defaults": {
+        "finial": "dogear"
+      }
+    },
+    "picket_gothic": {
+      "name": "Gothic Picket",
+      "description": "Pointed gothic pickets.",
+      "defaults": {
+        "finial": "gothic"
+      }
+    },
+    "picket_flat": {
+      "name": "Flat Picket",
+      "description": "Square-cut pickets.",
+      "defaults": {
+        "finial": "flat"
+      }
+    },
+    "picket_scallop": {
+      "name": "Scalloped",
+      "description": "Pickets dip in a concave curve between posts.",
+      "defaults": {
+        "finial": "gothic",
+        "curve": "concave",
+        "curve_h": 6
+      }
+    },
+    "picket_arched": {
+      "name": "Arched",
+      "description": "Pickets rise in a convex arch between posts.",
+      "defaults": {
+        "finial": "dogear",
+        "curve": "convex",
+        "curve_h": 6
+      }
+    },
+    "split_2rail": {
+      "name": "2-Rail",
+      "description": "Two split rails.",
+      "defaults": {
+        "h_count": 2
+      }
+    },
+    "split_3rail": {
+      "name": "3-Rail",
+      "description": "Three split rails.",
+      "defaults": {
+        "h_count": 3
+      }
+    },
+    "horiz_modern": {
+      "name": "Modern Gap",
+      "description": "1x6 boards with 1/2\" reveals.",
+      "defaults": {
+        "board_gap": 0.5,
+        "cap": false
+      }
+    },
+    "horiz_tight": {
+      "name": "Tight Board",
+      "description": "Nearly closed horizontal boards.",
+      "defaults": {
+        "board_gap": 0.125,
+        "cap": false
+      }
+    },
+    "horiz_cap": {
+      "name": "Capped",
+      "description": "Horizontal boards with a flat cap board.",
+      "defaults": {
+        "board_gap": 0.5,
+        "cap": true
+      }
+    },
+    "vinyl_solid": {
+      "name": "Solid Privacy",
+      "description": "Solid tongue-and-groove panel.",
+      "defaults": {
+        "air_space": 0,
+        "lattice_h": 0,
+        "top": "flush",
+        "finial": "flat"
+      }
+    },
+    "vinyl_lattice": {
+      "name": "Lattice Top",
+      "description": "Solid panel with a 12\" lattice topper.",
+      "defaults": {
+        "air_space": 0,
+        "lattice_h": 12,
+        "top": "flush",
+        "finial": "flat"
+      }
+    },
+    "vinyl_semi": {
+      "name": "Semi-Privacy",
+      "description": "Boards with small gaps between them.",
+      "defaults": {
+        "air_space": 1.5,
+        "lattice_h": 0,
+        "top": "flush",
+        "finial": "flat"
+      }
+    },
+    "vinyl_point": {
+      "name": "Point Picket",
+      "description": "Pointed vinyl pickets.",
+      "defaults": {
+        "finial": "point"
+      }
+    },
+    "vinyl_flat": {
+      "name": "Flat Picket",
+      "description": "Flat-top vinyl pickets.",
+      "defaults": {
+        "finial": "flat"
+      }
+    },
+    "vinyl_scallop": {
+      "name": "Scalloped",
+      "description": "Pointed pickets in a concave scallop.",
+      "defaults": {
+        "finial": "point",
+        "curve": "concave",
+        "curve_h": 6
+      }
+    },
+    "vinyl_gothic": {
+      "name": "Gothic Picket",
+      "description": "Gothic vinyl pickets.",
+      "defaults": {
+        "finial": "gothic"
+      }
+    },
+    "ranch_2": {
+      "name": "2-Rail",
+      "description": "Two rails.",
+      "defaults": {
+        "h_count": 2
+      }
+    },
+    "ranch_3": {
+      "name": "3-Rail",
+      "description": "Three rails.",
+      "defaults": {
+        "h_count": 3
+      }
+    },
+    "ranch_4": {
+      "name": "4-Rail",
+      "description": "Four rails.",
+      "defaults": {
+        "h_count": 4
+      }
+    },
+    "gauntlet": {
+      "name": "Gauntlet",
+      "description": "Pales with a pointed top above the top rail (top shape approximate).",
+      "defaults": {
+        "top": "extended",
+        "top_ext": 6,
+        "bottom": "flush",
+        "finial": "point",
+        "rails": 3
+      }
+    },
+    "jerith_202": {
+      "name": "#202 Flat Top",
+      "description": "Classic flat top: smooth top rail, no points. Jerith's best seller.",
+      "defaults": {
+        "top": "flush",
+        "bottom": "flush",
+        "finial": "flat"
+      }
+    },
+    "alu_flat_top": {
+      "name": "Flat Top",
+      "description": "Pickets end under a smooth top rail.",
+      "defaults": {
+        "top": "flush",
+        "bottom": "flush",
+        "finial": "flat"
+      }
+    },
+    "alu_spear_top": {
+      "name": "Spear Top",
+      "description": "Spear-capped pickets extend above the top rail.",
+      "defaults": {
+        "top": "extended",
+        "top_ext": 4,
+        "bottom": "flush",
+        "finial": "spear"
+      }
+    },
+    "alu_extended_top": {
+      "name": "Extended Flat Top",
+      "description": "Flat-capped pickets extend above the top rail.",
+      "defaults": {
+        "top": "extended",
+        "top_ext": 4,
+        "bottom": "flush",
+        "finial": "flat"
+      }
+    },
+    "alu_puppy": {
+      "name": "Flat Top + Puppy Pickets",
+      "description": "Flat top with extra short pickets along the bottom (pets/pools).",
+      "defaults": {
+        "top": "flush",
+        "bottom": "flush",
+        "finial": "flat",
+        "puppy": true
+      }
+    },
+    "bt_victorian": {
+      "name": "Victorian Accent",
+      "description": "Solid privacy with a decorative accent topper (drawn as a square lattice).",
+      "defaults": {
+        "air_space": 0,
+        "lattice_h": 12,
+        "top": "flush",
+        "finial": "flat"
+      }
+    },
+    "bt_cape_cod": {
+      "name": "Cape Cod",
+      "description": "7/8 x 3 pickets with pointed caps, straight across the top.",
+      "defaults": {
+        "finial": "point",
+        "curve": "none"
+      }
+    },
+    "bt_cape_cod_concave": {
+      "name": "Cape Cod Concave",
+      "description": "Cape Cod pickets graded in a concave dip (7\" longest to shortest).",
+      "defaults": {
+        "finial": "point",
+        "curve": "concave",
+        "curve_h": 7
+      }
+    },
+    "bt_baron": {
+      "name": "Baron",
+      "description": "7/8 x 3 vertical pickets on 1-3/4 x 3-1/2 rails.",
+      "defaults": {
+        "finial": "flat",
+        "curve": "none"
+      }
+    },
+    "illusions_semi": {
+      "name": "Alternating Semi-Privacy",
+      "description": "3\" boards alternating on both faces.",
+      "defaults": {
+        "layout": "shadowbox",
+        "picket_w": 3.0,
+        "air_space": 3.0,
+        "lattice_h": 0,
+        "top": "flush",
+        "finial": "flat"
+      }
+    },
+    "illusions_diag": {
+      "name": "Lattice Top",
+      "description": "6\" V-groove boards with a lattice topper (drawn square).",
+      "defaults": {
+        "air_space": 0,
+        "lattice_h": 12,
+        "top": "flush",
+        "finial": "flat"
+      }
+    },
+    "trex_bob": {
+      "name": "Board-on-Board",
+      "description": "Interlocking board-on-board privacy, finished on both sides.",
+      "defaults": {
+        "layout": "shadowbox",
+        "air_space": 3.6,
+        "finial": "flat"
+      }
+    },
+    "trex_horizons": {
+      "name": "Horizons",
+      "description": "Horizontal composite pickets.",
+      "defaults": {
+        "board_gap": 0.25
+      }
+    },
+    "cl_windscreen": {
+      "name": "Windscreen",
+      "description": "Fabric with a full windscreen tied on.",
+      "defaults": {
+        "windscreen": true,
+        "slats": false,
+        "barbed": 0
+      }
+    },
+    "cl_ballstop": {
+      "name": "Ball Stop Over Fence",
+      "description": "Chain link with netting above on extended posts.",
+      "defaults": {
+        "net_above": 120,
+        "barbed": 0,
+        "slats": false
+      }
+    },
+    "tc_3rail": {
+      "name": "3-Rail Court",
+      "description": "Top, middle and bottom rails, no windscreen.",
+      "defaults": {
+        "mid_rail": true,
+        "bottom_rail": true,
+        "windscreen": false,
+        "net_above": 0
+      }
+    },
+    "tc_windscreen": {
+      "name": "3-Rail + Windscreen",
+      "description": "Court fence with windscreen centered on the fence.",
+      "defaults": {
+        "mid_rail": true,
+        "bottom_rail": true,
+        "windscreen": true,
+        "net_above": 0
+      }
+    },
+    "net_poles": {
+      "name": "Pole & Net",
+      "description": "Netting hung on cables between poles.",
+      "defaults": {
+        "net_cables": 2
+      }
+    },
+    "net_poles_mid": {
+      "name": "Pole & Net + Mid Cable",
+      "description": "Netting with an extra mid-height support cable.",
+      "defaults": {
+        "net_cables": 3
+      }
+    }
+  },
+  "aliases": {
+    "cl_residential": "mh_cl_residential",
+    "cl_commercial": "mm_cl_commercial",
+    "cl_security": "mh_cl_security",
+    "wood_privacy": "oe_cedar_privacy",
+    "vinyl_privacy": "bufftech_chesterfield",
+    "vinyl_picket": "bufftech_cape_cod",
+    "vinyl_ranch": "bufftech_post_rail",
+    "montage_ii": "montage_plus"
   }
 }

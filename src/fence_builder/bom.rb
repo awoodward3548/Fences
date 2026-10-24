@@ -133,6 +133,7 @@ module FenceBuilder
         add.call('Chain link', 'Bottom tension wire', (t[:tension_wire] / 12.0).ceil, 'ft') if t[:tension_wire] > 0
         add.call('Chain link', 'Barbed wire', (t[:barbed_len] / 12.0).ceil, 'ft') if t[:barbed_len] > 0
         add.call('Chain link', 'Privacy slats', (t[:fabric_len] / 12.0).ceil, 'ft') if FenceBuilder.truthy?(s['slats'])
+        sports_rows(add, t)
         terminals = @posts.select { |(type, _, _), _| type != 'line' }.values.inject(0, :+)
         lines = @posts.select { |(type, _, _), _| type == 'line' }.values.inject(0, :+)
         bands = [(FenceBuilder.num(s['height']) / 12.0).ceil - 1, 2].max
@@ -141,6 +142,8 @@ module FenceBuilder
         add.call('Chain link', 'Brace bands + rail end cups', terminals * 2, 'ea')
         add.call('Chain link', 'Fence ties', lines * (FenceBuilder.num(s['height']) / 12.0).ceil + (t[:rail_len] / 24.0).ceil, 'ea',
                  'ties every 12" on posts and 24" on rails')
+      when 'netting'
+        sports_rows(add, t)
       when 'horizontal'
         add.call('Boards', "Boards/rails #{FenceBuilder.fmt_in(FenceBuilder.num(s['board_t']))} x #{FenceBuilder.fmt_in(FenceBuilder.num(s['board_h']))}",
                  t[:boards], 'ea', "approx. #{FenceBuilder.fmt_len(stock(t[:max_board_len]))} stock length")
@@ -163,6 +166,17 @@ module FenceBuilder
         if s['kind'] == 'wood' && t[:pickets] > 0
           add.call('Components', 'Fasteners (est.)', t[:pickets] * [s['rails'].to_i, 2].max * 2, 'ea', '2 per board per rail')
         end
+      end
+    end
+
+    def sports_rows(add, t)
+      if t[:windscreen_len] > 0
+        add.call('Sports', 'Windscreen', (t[:windscreen_len] / 12.0).ceil, 'ft',
+                 "#{FenceBuilder.fmt_len(FenceBuilder.num(@s['windscreen_h']) > 0 ? FenceBuilder.num(@s['windscreen_h']) : FenceBuilder.num(@s['height']) - 12)} high")
+      end
+      if t[:net_area] > 0
+        add.call('Sports', 'Netting', (t[:net_area] / 144.0).ceil, 'sq ft')
+        add.call('Sports', 'Net support cable', (t[:cable_len] / 12.0).ceil, 'ft', 'top, bottom and intermediate cables')
       end
     end
 

@@ -227,7 +227,7 @@ module FenceBuilder
       origin = [pa[0] + dir[0] * x0, pa[1] + dir[1] * x0, 0.0]
       grp = @g_panels.entities.add_group
       ms = MeshSet.new
-      pb_builder = PanelBuilder.new(@s, ms, @mats[:infill], @mats[:hardware])
+      pb_builder = PanelBuilder.new(@s, ms, @mats[:infill], @mats[:hardware], @mats)
       curve = { type: @s['curve'], h: num('curve_h'), x0: 0, cw: w }
       stats = pb_builder.build(w, g0: g0, m: m, curve: curve, ext_a: x0, ext_b: hb + gap)
       ms.flush(grp.entities)
@@ -237,8 +237,9 @@ module FenceBuilder
       grp.name = "#{@bom.section_word} #{FenceBuilder.fmt_in(w)}#{racked ? '' : ' (stepped)'}"
       @bom.panel(w, racked, rise, stats, cut)
 
-      bump_top(ka, g0 + @h)
-      bump_top(kb, g0 + m * w + @h)
+      extra = @s['infill'] == 'chain_link' ? num('net_above') : 0.0
+      bump_top(ka, g0 + @h + extra)
+      bump_top(kb, g0 + m * w + @h + extra)
     end
 
     # --------------------------------------------------------------- gates
@@ -364,7 +365,7 @@ module FenceBuilder
       g = parent.entities.add_group
       g.name = 'Gate leaf'
       ms = MeshSet.new
-      PanelBuilder.new(gs, ms, @mats[:infill], @mats[:hardware])
+      PanelBuilder.new(gs, ms, @mats[:infill], @mats[:hardware], @mats)
                   .build(w, g0: 0, m: 0, frame: true, clearance: clearance, curve: curve)
       ms.flush(g.entities)
       tr = Geom::Transformation.translation(Geom::Vector3d.new(x, y, zbase))
@@ -430,7 +431,9 @@ module FenceBuilder
       frame = get(model, s['color'])
       infill = nil
       icol = s['infill_color'].to_s
-      if s['infill'] == 'chain_link'
+      if s['infill'] == 'netting'
+        infill = get(model, icol.empty? ? 'black' : icol, 0.35, ' Net')
+      elsif s['infill'] == 'chain_link'
         if FenceBuilder.truthy?(s['slats'])
           infill = get(model, icol.empty? ? 'green' : icol, 1.0, ' Slats')
         else
@@ -442,6 +445,8 @@ module FenceBuilder
       {
         frame: frame,
         infill: infill,
+        windscreen: get(model, s['windscreen_color'].to_s.empty? ? 'green' : s['windscreen_color'], 0.92, ' Windscreen'),
+        net: get(model, s['net_color'].to_s.empty? ? 'black' : s['net_color'], 0.35, ' Net'),
         hardware: custom(model, 'Fence Hardware', [60, 62, 66]),
         concrete: custom(model, 'Fence Concrete', [188, 186, 180], 0.6)
       }

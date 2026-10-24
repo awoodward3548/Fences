@@ -4,16 +4,16 @@ A SketchUp extension (2017 or newer) that builds fences with real-world dimensio
 
 ## Fence types
 
-| Type | Product lines | Styles |
-|---|---|---|
-| Ornamental (Ameristar) | Montage Plus, Montage II, Echelon Plus, Aegis Plus, Aegis II, Impasse II | Majestic, Genesis, Classic, Invincible, Warrior, Trident |
-| Chain link | Residential, Commercial, Security | Top rail, top & bottom rail, 3-rail, privacy slats, barbed wire |
-| Wood | Privacy, Picket, Split Rail, Horizontal | Dog-ear, flat, shadowbox, board-on-board, cap & trim, lattice top, gothic, scalloped, arched, 2/3-rail, modern horizontal |
-| Vinyl | Privacy, Picket, Ranch Rail | Solid, lattice top, semi-privacy, point, gothic, scalloped, 2/3/4-rail |
+| Type | Product lines |
+|---|---|
+| Ornamental | Ameristar Montage Plus, Echelon Plus, Echelon II, Aegis Plus, Aegis II, Impasse II; Jerith Legacy, Premier, Aero, Industrial; Ultra Aluminum UAF-200 Residential, Commercial, Industrial |
+| Chain link | Master Halco Residential, Merchants Metals Commercial (Schedule 40), Master Halco Security |
+| Sports | Tennis court fence, basketball court fence (both with windscreen and ball-stop options), Ball Stop / Overkick netting on poles |
+| Wood | Cedar privacy (Outdoor Essentials 5/8 x 5-1/2 pickets), stock-lumber picket, split rail, horizontal |
+| Vinyl | CertainTeed Bufftech Galveston, Chesterfield, Baron, Cape Cod, Post & Rail; Illusions Classic Series privacy |
+| Composite | Trex Seclusions, Trex Horizons |
 
-The dimensions are nominal values for modeling and estimating. Check the current manufacturer data sheets before you order.
-
-**Gate types:** single swing, double swing, cantilever slide and V-track slide. Swing gates can be arched up or down, and can be drawn partly open. Each gate opening keeps its own type and settings.
+Each line lists its spec notes and the sources the dimensions came from. Values the sources did not publish are marked *nominal*. Check the current manufacturer data sheets before you order.
 
 ## Install
 

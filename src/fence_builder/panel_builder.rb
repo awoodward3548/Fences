@@ -9,11 +9,13 @@ module FenceBuilder
 
     # s: resolved settings, ms: MeshSet, infill_mat: material for boards,
     # pickets or fabric (nil = inherit fence color)
-    def initialize(s, ms, infill_mat = nil, hardware_mat = nil)
+    # extra_mats: { windscreen: material, net: material } for sports options
+    def initialize(s, ms, infill_mat = nil, hardware_mat = nil, extra_mats = {})
       @s = s
       @ms = ms
       @imat = infill_mat
       @hmat = hardware_mat
+      @xmats = extra_mats || {}
     end
 
     # Options:
@@ -36,6 +38,7 @@ module FenceBuilder
       case @s['infill']
       when 'horizontal' then horizontal
       when 'chain_link' then chain_link
+      when 'netting' then netting
       else vertical
       end
       @stats
@@ -421,6 +424,52 @@ module FenceBuilder
                 [x1, d * 0.7071, g(x1) + h + 2 + d * 0.7071], 0.08, 4, false)
       end
       @stats[:barbed_len] += n * (x1 - x0)
+
+      windscreen(x0, x1, c, h, fy1) if on?('windscreen')
+      net_panel(x0, x1, h, h + f('net_above'), fy0) if f('net_above') > 0
+    end
+
+    # Windscreen (privacy/wind fabric) tied to the outside of the fabric,
+    # centered on the fence height.
+    def windscreen(x0, x1, c, h, y)
+      ws = f('windscreen_h')
+      ws = h - c - 12 if ws <= 0
+      ws = h - c if ws > h - c
+      z0 = c + (h - c - ws) / 2
+      Geo.beam(@ms[@xmats[:windscreen]], x0, g(x0) + z0, x1, g(x1) + z0, y + 0.02, y + 0.08, ws)
+      @stats[:windscreen_len] += x1 - x0
+    end
+
+    # Net between z0 and z1 with top and bottom cables (plus extra cables).
+    def net_panel(x0, x1, z0, z1, y)
+      return if z1 - z0 < 1
+      Geo.beam(@ms[@xmats[:net]], x0, g(x0) + z0, x1, g(x1) + z0, y, y + 0.1, z1 - z0)
+      cables = [f('net_cables', 2).to_i, 2].max
+      wire = @ms[@hmat, true]
+      cables.times do |i|
+        z = z0 + (z1 - z0) * i / (cables - 1)
+        Geo.cyl(wire, [x0, y, g(x0) + z], [x1, y, g(x1) + z], 0.19, 6)
+      end
+      @stats[:net_area] += (x1 - x0) * (z1 - z0)
+      @stats[:cable_len] += cables * (x1 - x0)
+    end
+
+    # ----------------------------------------------------------------- netting
+    # Freestanding ball-stop / overkick netting hung between poles.
+    def netting
+      h = f('height', 240)
+      c = @clear
+      y = f('post_size', 4.5) / 2
+      if @frame
+        # Netting "gates" are drop-net openings: a pipe frame with net.
+        fr = f('gate_frame', 1.9) / 2
+        pipe = @ms[nil, true]
+        [fr, @w - fr].each { |x| Geo.cyl(pipe, [x, 0, c], [x, 0, h], fr) }
+        Geo.cyl(pipe, [fr, 0, h - fr], [@w - fr, 0, h - fr], fr)
+        net_panel(fr, @w - fr, c, h - 2 * fr, -0.05)
+        return
+      end
+      net_panel(-@ext_a, @w + @ext_b, c, h, y)
     end
   end
 end

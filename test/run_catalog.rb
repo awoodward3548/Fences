@@ -32,7 +32,7 @@ user = if ARGV[0]
          inv['defaults']['top_ext'] = 6
          { 'lines' => [line], 'styles' => { 'invincible' => inv }, 'colors' => {}, 'hidden_lines' => [] }
        end
-user['hidden_lines'] = ['montage_ii']
+user['hidden_lines'] = ['jerith_aero']
 user['colors']['khaki'] = { 'name' => 'Khaki', 'rgb' => [195, 176, 145] }
 user['lines'].first['colors'] = user['lines'].first['colors'] + ['khaki']
 
@@ -41,8 +41,8 @@ C.save_user(user)
 check(File.exist?(C.user_file), 'save_user writes user_catalog.json')
 ids = C.data['lines'].map { |l| l['id'] }
 check(ids.include?('galveston_privacy'), 'custom line is merged into the catalog')
-check(!ids.include?('montage_ii'), 'hidden built-in line is left out')
-check(C.builtin['lines'].any? { |l| l['id'] == 'montage_ii' }, 'shipped catalog is untouched')
+check(!ids.include?('jerith_aero'), 'hidden built-in line is left out')
+check(C.builtin['lines'].any? { |l| l['id'] == 'jerith_aero' }, 'shipped catalog is untouched')
 check(C.style('invincible')['defaults']['top_ext'] == 6, 'modified built-in style overrides the shipped one')
 check(C.color('khaki')['name'] == 'Khaki', 'custom color is available')
 s = C.defaults('galveston_privacy', nil, nil)
@@ -96,3 +96,9 @@ check(rows.any? { |r| r['item'] == 'Kickboard' && r['qty'] > 0 }, 'kickboard is 
 FenceBuilder::Manager.save_last(s)
 check(File.exist?(File.join(C.user_dir, 'last_settings.json')), 'last settings are saved in the user folder')
 puts "\nCatalog checks passed"
+
+# Old line ids from earlier versions still resolve to their replacements.
+{ 'cl_commercial' => 'mm_cl_commercial', 'vinyl_privacy' => 'bufftech_chesterfield', 'montage_ii' => 'montage_plus' }.each do |old, new_id|
+  r = C.resolve('line' => old, 'style' => 'x', 'height' => 72)
+  check(r['line'] == new_id, "old line id #{old} maps to #{new_id}")
+end

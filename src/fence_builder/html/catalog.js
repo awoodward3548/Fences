@@ -245,6 +245,10 @@
       }).join('') + '</table><button class="mini" data-act="spec-add" style="margin:6px 0 0">+ Add note</button></div>',
     'Shown in Fence Builder and on the bill of materials, e.g. "Picket: 3/4 in sq, 18 ga", "Mesh: 2 in, 9 ga", "SKU prefix".');
 
+    h += sec('Spec sources', '<div class="row wide"><textarea data-path="sources" rows="3" placeholder="One web address per line">' +
+      esc((l.sources || []).join('\n')) + '</textarea></div>',
+    'Where the dimensions came from (data sheets, spec pages). Shown as links in Fence Builder.');
+
     h += sec('Photos', '<div class="row wide"><div class="photos">' + chosen.map(function (s) {
       var key = l.id + '__' + s, ph = CM.photos[key];
       var img = ph ? '<img src="' + esc(ph) + '" alt="">' : window.FencePreview.panel(settingsFor(cat, l, s, dh), cat, {});
@@ -432,6 +436,8 @@
     if (path === 'heights') {
       o.heights = v.split(/[,\s]+/).map(function (x) { return n(x, NaN); }).filter(function (x) { return x > 0; })
         .sort(function (a, b) { return a - b; });
+    } else if (path === 'sources') {
+      o.sources = v.split(/\s+/).filter(function (u) { return /^https?:\/\//.test(u); });
     } else if (path === 'rgb') {
       o.rgb = [1, 3, 5].map(function (i) { return parseInt(v.substr(i, 2), 16); });
     } else if (path === 'rgbtext') {

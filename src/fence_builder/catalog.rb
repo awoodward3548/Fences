@@ -97,7 +97,10 @@ module FenceBuilder
       base
     end
 
+    # Old line ids (from earlier versions) map to their replacements so
+    # existing fences keep rebuilding with the right product.
     def line(id)
+      id = (data['aliases'] || {})[id] || id
       data['lines'].find { |l| l['id'] == id } || data['lines'].first
     end
 
@@ -139,7 +142,9 @@ module FenceBuilder
       settings = settings || {}
       d = defaults(settings['line'], settings['style'], settings['height'])
       out = d.merge(settings)
-      out['kind'] = line(out['line'])['kind']
+      ln = line(out['line'])
+      out['line'] = ln['id']
+      out['kind'] = ln['kind']
       out
     end
 

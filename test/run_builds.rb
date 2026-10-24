@@ -122,9 +122,9 @@ model = Sketchup::Model.new
 Sketchup.instance_variable_set(:@model, model)
 path = make_path(model, %w[single])
 root = model.entities.add_group
-FenceBuilder::Manager.build(root, FenceBuilder::Catalog.defaults('montage_plus', 'invincible'),
+FenceBuilder::Manager.build(root, FenceBuilder::Catalog.defaults('montage_plus', 'majestic'),
                             FenceBuilder::PathParser.from_entity(path))
-puts "\nSample BOM (Montage Plus Invincible):"
+puts "\nSample BOM (Montage Plus Majestic):"
 JSON.parse(root.get_attribute('FenceBuilder', 'bom'))['rows'].each do |r|
   puts format('  %-14s %-52s %8s %-5s %s', r['cat'], r['item'], r['qty'], r['unit'], r['note'])
 end

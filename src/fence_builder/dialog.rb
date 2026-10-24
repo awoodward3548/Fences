@@ -122,6 +122,13 @@ module FenceBuilder
         end
       end
 
+      dlg.add_action_callback('open_url') do |_ctx, json|
+        guard('Open link') do
+          url = json.to_s.start_with?('"') ? JSON.parse("[#{json}]").first : json.to_s
+          UI.openURL(url) if url =~ %r{\Ahttps?://}
+        end
+      end
+
       dlg.add_action_callback('open_catalog') do |_ctx, *_args|
         guard('Catalog Manager') { CatalogManager.show }
       end
