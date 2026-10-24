@@ -147,8 +147,10 @@
 
     if (back) { rails(); stiles(); }
     var bc = lat > 0 ? function () { return 0; } : cv;
-    backs.forEach(function (x) { picket(d, s, X + x, pw, c, mainTop + bc(x), col.infillDark, col.stroke); });
-    fronts.forEach(function (x) { picket(d, s, X + x, pw, c, mainTop + bc(x), col.infill, col.stroke); });
+    var kick = back && on(s.kickboard) ? n(s.kick_h, 5.5) : 0;
+    backs.forEach(function (x) { picket(d, s, X + x, pw, c + kick, mainTop + bc(x), col.infillDark, col.stroke); });
+    fronts.forEach(function (x) { picket(d, s, X + x, pw, c + kick, mainTop + bc(x), col.infill, col.stroke); });
+    if (kick > 0) d.rect(X + fs, c, X + w - fs, c + kick, col.infillDark, col.stroke);
     if (on(s.puppy) && s.layout !== 'shadowbox') {
       var ph = n(s.puppy_h, 14);
       for (var p = 0; p < fronts.length - 1; p++) {

@@ -170,8 +170,13 @@ module FenceBuilder
         backs = (0...(fronts.size - 1)).map { |i| (fronts[i] + fronts[i + 1]) / 2 }
       end
       board_curve = lat > 0 ? ->(_x) { 0.0 } : ->(x) { curve(x) }
-      fronts.each { |x| picket(x, pw, fy, g(x) + c, g(x) + main_top + board_curve.call(x)) }
-      backs.each { |x| picket(x, pw, by, g(x) + c, g(x) + main_top + board_curve.call(x)) }
+      kick = back && on?('kickboard') ? f('kick_h', 5.5) : 0.0
+      if kick > 0
+        Geo.beam(infill_mesh, x_lo, g(x_lo) + c, x_hi, g(x_hi) + c, ry1, ry1 + 1.5, kick)
+        @stats[:kick_len] += x_hi - x_lo
+      end
+      fronts.each { |x| picket(x, pw, fy, g(x) + c + kick, g(x) + main_top + board_curve.call(x)) }
+      backs.each { |x| picket(x, pw, by, g(x) + c + kick, g(x) + main_top + board_curve.call(x)) }
       @stats[:pickets] += fronts.size + backs.size
       @stats[:max_picket_len] = [@stats[:max_picket_len], main_top - c].max
 

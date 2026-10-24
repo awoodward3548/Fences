@@ -122,6 +122,10 @@ module FenceBuilder
         end
       end
 
+      dlg.add_action_callback('open_catalog') do |_ctx, *_args|
+        guard('Catalog Manager') { CatalogManager.show }
+      end
+
       dlg.add_action_callback('refresh') do |_ctx, *_args|
         push_selection
       end

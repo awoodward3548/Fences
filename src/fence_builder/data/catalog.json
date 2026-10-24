@@ -35,7 +35,7 @@
     "top": "flush", "top_ext": 0, "finial": "flat", "bottom": "flush", "bottom_ext": 0,
     "curve": "none", "curve_h": 6,
     "puppy": false, "puppy_h": 14,
-    "lattice_h": 0, "cap": false, "trim": false, "cap_w": 5.5, "cap_t": 1.5,
+    "lattice_h": 0, "cap": false, "trim": false, "cap_w": 5.5, "cap_t": 1.5, "kickboard": false, "kick_h": 5.5,
     "board_h": 5.5, "board_t": 0.75, "board_gap": 0.5, "h_count": 0, "h_mount": "face",
     "post_shape": "square", "post_size": 2.5, "terminal_post_size": 0, "gate_post_size": 4,
     "post_cap": "flat", "post_above": 1,

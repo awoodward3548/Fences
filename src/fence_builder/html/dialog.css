@@ -47,6 +47,11 @@ input, select { font: inherit; color: var(--ink); }
 .status { margin-left: auto; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .status.ok { color: var(--ok); } .status.warn { color: var(--warn); } .status.error { color: var(--err); }
 
+.hdr-btn {
+  border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 8px; padding: 4px 10px;
+}
+.hdr-btn:hover { border-color: var(--accent); color: var(--accent); }
+
 /* Layout */
 .layout { flex: 1; display: flex; min-height: 0; }
 .catalog {

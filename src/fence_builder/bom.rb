@@ -88,6 +88,7 @@ module FenceBuilder
                "#{FenceBuilder.fmt_len(h)} high, #{color ? color['name'] : s['color']}")
       add.call('Summary', 'Fence length (incl. gates)', ((@run_length + @gate_length) / 12.0).round(1), 'ft',
                FenceBuilder.fmt_len(@run_length + @gate_length))
+      (Catalog.line(s['line'])['spec'] || {}).each { |k, v| add.call('Spec', k, '', '', v) }
       add.call('Summary', 'Gate openings', (@gate_length / 12.0).round(1), 'ft', "#{@gates.size} gate(s)") if @gates.any?
 
       @panels.sort.each do |(w, note), q|
@@ -157,6 +158,7 @@ module FenceBuilder
         end
         add.call('Components', 'Cap board', (t[:cap_len] / 12.0).ceil, 'ft') if t[:cap_len] > 0
         add.call('Components', 'Trim board', (t[:trim_len] / 12.0).ceil, 'ft') if t[:trim_len] > 0
+        add.call('Components', 'Kickboard', (t[:kick_len] / 12.0).ceil, 'ft') if t[:kick_len] > 0
         add.call('Components', 'Lattice', (t[:lattice_len] / 12.0).ceil, 'ft') if t[:lattice_len] > 0
         if s['kind'] == 'wood' && t[:pickets] > 0
           add.call('Components', 'Fasteners (est.)', t[:pickets] * [s['rails'].to_i, 2].max * 2, 'ea', '2 per board per rail')

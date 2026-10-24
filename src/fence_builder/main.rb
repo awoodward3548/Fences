@@ -4,7 +4,7 @@ require 'json'
 module FenceBuilder
   dir = File.dirname(__FILE__)
   dir.force_encoding('UTF-8') if dir.respond_to?(:force_encoding)
-  %w[util catalog geo path_parser panel_builder post_builder bom builder manager dialog].each do |f|
+  %w[util catalog geo path_parser panel_builder post_builder bom builder manager dialog catalog_manager].each do |f|
     Sketchup.require(File.join(dir, f))
   end
   ICON_DIR = File.join(dir, 'icons')
@@ -69,6 +69,12 @@ module FenceBuilder
     cmd_bom.small_icon = icon('bom_16')
     cmd_bom.large_icon = icon('bom_24')
 
+    cmd_catalog = UI::Command.new('Catalog Manager...') { CatalogManager.show }
+    cmd_catalog.tooltip = 'Fence Catalog Manager'
+    cmd_catalog.status_bar_text = 'Add and edit fence products, styles, colors and photos.'
+    cmd_catalog.small_icon = icon('catalog_16')
+    cmd_catalog.large_icon = icon('catalog_24')
+
     menu = UI.menu('Extensions').add_submenu('Fence Builder')
     menu.add_item(cmd_open)
     menu.add_separator
@@ -76,9 +82,11 @@ module FenceBuilder
     menu.add_item(cmd_gate)
     menu.add_item(cmd_rebuild)
     menu.add_item(cmd_bom)
+    menu.add_separator
+    menu.add_item(cmd_catalog)
 
     tb = UI::Toolbar.new('Fence Builder')
-    [cmd_open, cmd_quick, cmd_gate, cmd_rebuild, cmd_bom].each { |c| tb.add_item(c) }
+    [cmd_open, cmd_quick, cmd_gate, cmd_rebuild, cmd_bom, cmd_catalog].each { |c| tb.add_item(c) }
     tb.restore
 
     UI.add_context_menu_handler do |cm|

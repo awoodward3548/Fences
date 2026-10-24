@@ -31,12 +31,23 @@ The dimensions are nominal values for modeling and estimating. Check the current
 
 Racked panels follow sloped lines. If the slope is steeper than the product's maximum rack, the panels step instead. A corner post is placed wherever the line turns more than the corner angle, so arcs become smooth curved fences.
 
-## Customize
+## Catalog Manager (add and edit products)
 
-- **Photos:** put them in `fence_builder/photos/`. See `README.txt` in that folder.
-- **Your own products or changed dimensions:** add `fence_builder/data/user_catalog.json`, using the same format as `catalog.json`.
+Open it from **Extensions > Fence Builder > Catalog Manager**, the toolbar, or the **Catalog Manager** button in the Fence Builder window.
+
+- **Product lines:** add new lines (start from any existing line), or edit any built-in line. You can change the name, brand, fence type, heights, post-size rules, which styles and colors are offered, spec notes (shown on the BOM), photos, and every default dimension.
+- **Styles:** create styles or change the built-in ones (top style, finials, rails, extensions, lattice, curves and more), and see a live preview on any line.
+- **Colors:** add colors and choose which lines offer them.
+- **Built-in items:** a built-in item is only copied into your catalog when you edit it, so it can always be reset. You can also hide built-in lines you don't sell.
+- **Import / Export:** share your catalog with other computers or a team as a JSON file.
+
+Your catalog and photos are saved per user, outside the plugin folder, so updating the plugin never erases them:
+
+- Windows: `%APPDATA%\FenceBuilder\` (`user_catalog.json`, `photos\`)
+- macOS: `~/Library/Application Support/FenceBuilder/`
 
 ## Develop
 
+- `ruby test/run_catalog.rb` checks saving, merging, hiding, photos and validation of the user catalog.
 - `ruby test/run_builds.rb [--obj]` builds every line and style outside SketchUp, using a stub of the SketchUp API, and checks the results. With `--obj` it also writes OBJ files to `test/out/`.
 - `python3 test/render_obj.py test/out/<file>.obj out.png` renders a quick preview image of an OBJ file.

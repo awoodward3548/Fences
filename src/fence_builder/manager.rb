@@ -5,9 +5,11 @@ module FenceBuilder
   # export the bill of materials. All edits are wrapped in undoable operations.
   module Manager
     GATE_LAYER = 'Fence Gate'.freeze
-    LAST_FILE = File.join(File.dirname(__FILE__), 'data', 'last_settings.json')
-
     module_function
+
+    def last_file
+      File.join(Catalog.user_dir, 'last_settings.json')
+    end
 
     def model
       Sketchup.active_model
@@ -16,8 +18,8 @@ module FenceBuilder
     # ------------------------------------------------------------ settings
 
     def last_settings
-      if File.exist?(LAST_FILE)
-        Catalog.resolve(JSON.parse(File.read(LAST_FILE)))
+      if File.exist?(last_file)
+        Catalog.resolve(JSON.parse(File.read(last_file)))
       else
         Catalog.defaults(Catalog.data['lines'].first['id'])
       end
@@ -26,7 +28,8 @@ module FenceBuilder
     end
 
     def save_last(settings)
-      File.open(LAST_FILE, 'w') { |f| f.write(JSON.generate(settings)) }
+      FileUtils.mkdir_p(Catalog.user_dir)
+      File.open(last_file, 'w') { |f| f.write(JSON.generate(settings)) }
     rescue StandardError => e
       puts "Fence Builder: could not save settings (#{e.message})"
     end

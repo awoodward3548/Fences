@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Catalog Manager</title>
+<link rel="stylesheet" href="dialog.css">
+<link rel="stylesheet" href="catalog.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <svg viewBox="0 0 24 24" class="logo"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4z" fill="currentColor"/><path d="M16.5 13v7M13 16.5h7" stroke="currentColor" stroke-width="2"/></svg>
+    <span>Catalog Manager</span>
+  </div>
+  <div id="dirty" class="pill dirty" style="display:none">Unsaved changes</div>
+  <div id="status" class="status"></div>
+  <button class="hdr-btn" id="btnImport" title="Merge products from a catalog JSON file">Import</button>
+  <button class="hdr-btn" id="btnExport" title="Save your products to a JSON file to share or back up">Export</button>
+  <button class="hdr-btn" id="btnFolder" title="Open the folder where your catalog and photos are stored">Open data folder</button>
+</header>
+
+<main class="cm">
+  <aside class="side">
+    <div class="segs" id="segs">
+      <button class="seg on" data-mode="lines">Product lines</button>
+      <button class="seg" data-mode="styles">Styles</button>
+      <button class="seg" data-mode="colors">Colors</button>
+    </div>
+    <input id="search" class="search" type="search" placeholder="Search">
+    <div class="kinds small" id="kinds"></div>
+    <div class="list" id="list"></div>
+    <button class="newbtn" id="btnNew">+ New product line</button>
+  </aside>
+
+  <section class="ed" id="editor"></section>
+
+  <aside class="pv">
+    <div class="pv-head">
+      <b>Preview</b>
+      <div class="pv-toggle">
+        <button class="seg on" data-pv="panel">Panel</button>
+        <button class="seg" data-pv="gate">Gate</button>
+      </div>
+    </div>
+    <div class="pv-box" id="preview"></div>
+    <div class="pv-ctl" id="pvCtl"></div>
+    <div class="pv-photo" id="pvPhoto"></div>
+    <p class="hint" id="pvHint"></p>
+  </aside>
+</main>
+
+<footer class="actions">
+  <span class="hint" id="fileHint"></span>
+  <div class="spacer"></div>
+  <button id="btnDiscard" class="ghost">Discard changes</button>
+  <button id="btnSave" class="primary">Save changes</button>
+</footer>
+
+<script src="preview.js"></script>
+<script src="fields.js"></script>
+<script src="catalog.js"></script>
+</body>
+</html>
